@@ -1,0 +1,64 @@
+@import "variable";
+
+.dropdown-menu>li>a,
+.nav-header  .navbar-nav>li>a,
+.nav-header  .navbar-nav >.active>a,
+.nav-header  .navbar-header>a,
+.nav-header  .navbar-nav>.active>a,
+.nav-header  .navbar-nav .open .dropdown-menu>li>a
+{
+
+	transition:all .3s;
+	-o-transition:all 1s;
+	-moz-transition:all 1s;
+	-webkit-transition:all 1s;
+  // height: 64px;
+  line-height: inherit;
+  font-size: 18px;
+  // color: #FFF;
+  padding: 0;
+	margin-left: 25px;
+
+}
+.dropdown-menu>li>a:hover,
+.nav-header  .navbar-nav>li>a:hover,S
+.nav-header  .navbar-nav >.active>a,
+.nav-header  .navbar-header>a:hover,
+.nav-header  .navbar-nav>.active>a:hover,
+.nav-header  .navbar-nav .open .dropdown-menu>li>a:hover,
+.nav-header  .navbar-nav>li>a:focus,
+{
+  background: none;
+
+}
+.box {
+    flex-direction: row;
+    padding: 15px;
+}
+.nav-header  {
+  // background: linear-gradient(-90deg, $light-purple, $purple);
+  background: $purple;
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+.navbar-r{
+  float: right;
+  color: #FFF;
+}
+
+.menu-logout {
+	color: $purple;
+	padding: 15px;
+}
+.navbar-nav>li>.dropdown-menu {
+	border-radius: 0px;
+	color: #3C4254;
+}
+.header-brand {
+	float: left;
+font-size: 18px;
+line-height: 22px;
+
+}
+.nav-login {
+	margin: 0px 10px;
+}
