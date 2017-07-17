@@ -233,7 +233,11 @@
 
                             <div class="col-md-6">
                                 <input id="salary" type="text" class="form-control" name="salary" value="{{ old('salary') }}" required>
-
+                                <select class="form-control" name="salary_type">
+                                  <option value="1">Hour</option>
+                                  <option value="2">Day</option>
+                                  <option value="3">Month</option>
+                                </select>
                                 @if ($errors->has('salary'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('salary') }}</strong>

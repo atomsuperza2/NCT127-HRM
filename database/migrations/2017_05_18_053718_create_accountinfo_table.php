@@ -34,6 +34,7 @@ class CreateAccountinfoTable extends Migration
             $table->date('hiredDate');
             $table->date('exitDate');
             $table->double('salary');
+            $table->integer('salary_type');
             // $table->integer('role_id');
             $table->timestamps();
         });

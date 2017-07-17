@@ -70,6 +70,10 @@ class AccountInfo extends Model
     return $this->hasMany('App\AttendanceModel','user_id', 'id');
   }
 
+  public function salarytype(){
+    return $this->belongsTo('App\SalarytypeModel', 'salary_type');
+  }
+
   public function getAttendanceByDate($date) {
 
     $attendances = $this->attendance->where('date','=',$date)->first();
