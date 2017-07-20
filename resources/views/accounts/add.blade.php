@@ -231,20 +231,23 @@
                         <div class="form-group{{ $errors->has('salary') ? ' has-error' : '' }}">
                             <label for="salary" class="col-md-4 control-label">Salary</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input id="salary" type="text" class="form-control" name="salary" value="{{ old('salary') }}" required>
-                                <select class="form-control" name="salary_type">
-                                  <option value="1">Hour</option>
-                                  <option value="2">Day</option>
-                                  <option value="3">Month</option>
-                                </select>
+
                                 @if ($errors->has('salary'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('salary') }}</strong>
                                     </span>
                                 @endif
                             </div>
+                            <select class="form-control" name="salary_type" style="width:110px;">
+                              <option value="null">select</option>
+                              <option value="1">Hour</option>
+                              <option value="2">Day</option>
+                              <option value="3">Month</option>
+                            </select>
                         </div>
+
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                             <label for="username" class="col-md-4 control-label">ID card</label>

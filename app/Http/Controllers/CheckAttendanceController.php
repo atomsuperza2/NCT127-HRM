@@ -46,12 +46,25 @@ class CheckAttendanceController extends Controller
   public function submitAttendance(Request $request, $id){
 
     $account = AccountInfo::find($id);
+    $accountST = $account->salary_type;
+    $accountS = $account->salary;
+
+    // dd($accountS);
+    // dd($accountST);
     $TStart = Carbon::parse($account->shiftStart);
     $TEnd = Carbon::parse($account->shiftEnd);
     $defaultTime = Carbon::parse('00:00');
+
+    // $de = $account->shiftStart;
+    // $des = '10.00';
+    // $hour = doubleval($de);
+    // $result = $des + $hour;
+    //   dd($result);
+
     for ($i=0; $i < count($request->date); $i++) {
       $TimeIn = Carbon::parse($request->timeIn[$i]);
       $TimeOut = Carbon::parse($request->timeOut[$i]);
+
       $hoursWorked = $TimeOut->diffInSeconds($TimeIn);
       $Hresult = gmdate('H:i:s', $hoursWorked);
       if($TStart<$TimeIn){
@@ -59,17 +72,30 @@ class CheckAttendanceController extends Controller
       $tardiness = $TimeIn2->diffInSeconds($TStart);
       $Tresult = gmdate('H:i:s', $tardiness);
       $request->tardiness = $Tresult;
-    }else {
-      $request->tardiness = $defaultTime;
+    }elseif ($TStart>=$TimeIn) {
+        $request->tardiness = $defaultTime;
     }
     if($TEnd<$TimeOut){
       $TimeOut2 = Carbon::parse($request->timeOut[$i]);
       $overTime = $TimeOut2->diffInSeconds($TEnd);
       $Oresult = gmdate('H:i:s', $overTime);
       $request->overtime = $Oresult;
-    }else {
+    }elseif ($TEnd>=$TimeOut) {
       $request->overtime = $defaultTime;
     }
+
+    if ($accountST==1) {
+      $hour = doubleval($Hresult);
+      $result = $hour*$accountS;
+      $request->price = $result;
+    }elseif (($accountST==2) && ($Hresult!=='00:00:00')) {
+      $request->price = $accountS;
+    }elseif (($accountST==2) && ($Hresult=='00:00:00')) {
+      $request->price = '0.0';
+    }
+
+
+
           AttendanceModel::find($request->a_id[$i])->update([
            'date'=> $request->date[$i],
            'timeIn'=> $request->timeIn[$i],
@@ -77,6 +103,7 @@ class CheckAttendanceController extends Controller
            'hoursWorked' => $Hresult,
            'tardiness' => $request->tardiness,
            'overtime' => $request->overtime,
+           'price' => $request->price,
         ]);
     }
         return redirect("/accounts/$id/profile");
@@ -84,10 +111,12 @@ class CheckAttendanceController extends Controller
 
 
       public function exportExcel(Request $request, $id){
-        $export = AttendanceModel::where('user_id','=',$id)
-                                  ->where('tardiness','!=',null)
-                                  ->where('overtime','!=',null)
-                                  ->select('user_id','date','timeIn','timeOut','hoursWorked','tardiness','overTime')->get();
+        $export = AttendanceModel::join('accountinfo', 'attendance.user_id', '=', 'accountinfo.id')
+                                  ->where('attendance.user_id','=',$id)
+                                  ->Where('attendance.tardiness','!=',null)
+                                  ->where('attendance.overtime','!=',null)
+
+                                  ->select('attendance.user_id','accountinfo.name','attendance.date','attendance.timeIn','attendance.timeOut','attendance.hoursWorked','attendance.tardiness','attendance.overTime','attendance.price')->get();
         //  dd($export);
         Excel::create('export data', function($excel) use($export){
           $excel->setTitle('รายงานการเข้างานของพนักงาน');

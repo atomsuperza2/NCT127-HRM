@@ -51,6 +51,7 @@
                   <th>HoursWorked</th>
                   <th>Late</th>
                   <th>Overtime</th>
+                  <th>Price</th>
                 </tr>
                 <div class="container">
                   @foreach ($ranges as $date => $value)
@@ -73,8 +74,10 @@
                              <td><input class="form-control" name="timeOut[]" type="time" value="{{ $attend->timeOut}}"/></td>
                            @endif<!-- <td><input class="form-control" name="a_id" type="text" value="{{ isset($accounts->attendance[$date])? $accounts->attendance[$date]->id:'null' }}"/></td> -->
                            <td><input class="form-control" name="hoursWorked[]" type="time" value="{{ $attend->hoursWorked}}" disabled/></td>
+
                            <td><input class="form-control" name="tardiness[]" type="time" value="{{ $attend->tardiness}}" disabled/></td>
                            <td><input class="form-control" name="overtime[]" type="time" value="{{ $attend->overtime}}" disabled/></td>
+                           <td><input class="form-control" name="price[]" type="text" value="{{ $attend->price}}" disabled/></td>
                            <td><input class="form-control" name="a_id[]" type="hidden" value="{{ $attend->id}}" /></td>
 
                     </tr>

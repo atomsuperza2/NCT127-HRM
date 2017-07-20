@@ -87,6 +87,7 @@ class AccountInfoController extends Controller
             'shiftEnd' => $request -> shiftEnd,
             'designation_id' => $request -> designation_id,
             'department_id' => $request -> department_id,
+            'salary_type' => $request -> salary_type,
             'user_id' => $user->id,
 
           ]);
@@ -236,7 +237,8 @@ class AccountInfoController extends Controller
         $account->shiftStart = $request -> shiftStart;
         $account->shiftEnd = $request -> shiftEnd;
         $account->salary = $request -> salary;
-
+        $account->salary_type = $request -> salary_type;
+        
         $this->syncPermissions($request, $user);
         $account->save();
         $user->save();
