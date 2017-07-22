@@ -26,20 +26,39 @@
                 <a class="btn btn-primary" href="{{ route('accounts.edit', $accounts->id) }}">Edit profile</a>
                 <a class="btn btn-primary" id="selectCutoff">Attendance</a>
                 <a class="btn btn-primary" href="{{route('absences.usercreateabsences', $accounts->id) }}">Absences</a>
+                <a class="btn btn-primary" href="{{ route('leaves.userleave', $accounts->id)}}">Leave</a>
+                <a class="btn btn-primary" href="{{ route('pay.usercreatepay', $accounts->id)}}">Pay</a>
                 <a class="btn btn-primary" href="{{ route('bankaccount.edit', $accounts->id) }}">Bank account</a>
                 <a class="btn btn-primary" href="{{ route('awards.usercreateaward', $accounts->id)}}">Awards</a>
-                <a class="btn btn-primary" href="{{ route('pay.usercreatepay', $accounts->id)}}">Pay</a>
                 <a class="btn btn-primary" href="{{ route('training.usertraining', $accounts->id)}}">Training</a>
-                <a class="btn btn-primary" href="{{ route('leaves.userleave', $accounts->id)}}">Leave</a>
+
               </div>
               <hr />
-              <form enctype="multipart/form-data" action="{{ route('accounts.update_avatar', $accounts->id) }} " method="POST">
-                <label>Update Profile Image</label>
-                <input type="file" name="avatar">
-                <input type="hidden" name="_token" value="{{csrf_token() }}">
-                <br />
-                <input type="submit" class="btn btn-sm btn-primary">
-              </form>
+
+              <div class="row">
+                <div class=" col-md-4">
+                  <form enctype="multipart/form-data" action="{{ route('accounts.update_avatar', $accounts->id) }} " method="POST">
+                    <label>Update Profile Image</label>
+
+                    <input type="file" name="avatar">
+                    <input type="hidden" name="_token" value="{{csrf_token() }}">
+                    <br />
+                    <input type="submit" class="btn btn-sm btn-primary">
+
+
+                  </form>
+                </div>
+                <div class=" col-md-4" >
+                  <div class="panel panel-default">
+                    <h1><center>1</center></h1>
+                  </div>
+                </div>
+                <div class=" col-md-4">
+                  <div class="panel panel-default">
+                    <h1><center>1</center></h1>
+                  </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
