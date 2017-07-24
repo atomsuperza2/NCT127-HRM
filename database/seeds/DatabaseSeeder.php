@@ -84,8 +84,8 @@ class DatabaseSeeder extends Seeder
 
             $this->command->warn('Password is "secret"');
         }
-        $account = factory(AccountInfo::class)->create();
-        $bankaccount = factory(BankaccountModel::class)->create();
+        $account = factory(AccountInfo::class)->create(['user_id' => $user->id]);
+        $bankaccount = factory(BankaccountModel::class)->create(['user_id' => $user->id]);
     }
 
 }
