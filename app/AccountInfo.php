@@ -11,7 +11,7 @@ class AccountInfo extends Model
   use Notifiable;
   use HasRoles;
 
-  protected $table = 'accountinfo';
+  protected $table = 'accountinfos';
 
   protected $guarded = ['username', 'password'];
 
