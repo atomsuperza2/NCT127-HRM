@@ -29,7 +29,7 @@ $factory->define(App\AccountInfo::class, function (Faker\Generator $faker) {
 
 
     return [
-
+        'user_id' => '1',
         'name' => 'Admin',
         'avatar' =>  'default.jpg',
         'birthday' => '2017-06-01',
@@ -47,7 +47,7 @@ $factory->define(App\BankaccountModel::class, function (Faker\Generator $faker) 
 
 
     return [
-      
+        'user_id' => '1',
         'account_name' => 'Admin',
         'account_number' =>  '123456789',
         'bank_name' => 'Bamk',
