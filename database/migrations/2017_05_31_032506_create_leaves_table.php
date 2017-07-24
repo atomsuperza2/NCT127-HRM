@@ -15,7 +15,8 @@ class CreateLeavesTable extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->integer('leavetype_id');
             $table->integer('status_id')->default('1');
             $table->integer('designation')->nullable();

@@ -13,9 +13,10 @@ class CreateEmDesignationTable extends Migration
      */
     public function up()
     {
-        Schema::create('EmDesignation', function (Blueprint $table) {
+        Schema::create('emdesignation', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->integer('designation_id');
             $table->date('dateStart');
             $table->date('dateEnd');

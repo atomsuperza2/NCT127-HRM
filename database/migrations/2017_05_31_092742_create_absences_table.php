@@ -15,7 +15,8 @@ class CreateAbsencesTable extends Migration
     {
         Schema::create('absences', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->integer('leavetype_id')->nullable();
             $table->string('reason')->nullable();
             $table->date('date')->nullable();

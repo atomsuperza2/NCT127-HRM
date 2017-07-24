@@ -15,7 +15,8 @@ class CreateBankaccountTable extends Migration
     {
         Schema::create('bankaccount', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->string('account_name')->nullable();
             $table->string('account_number')->nullable();
             $table->string('bank_name')->nullable();

@@ -15,7 +15,8 @@ class CreateTrainingTable extends Migration
     {
         Schema::create('training', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->integer('trainingprogram_id');
             $table->date('dateStart')->nullable();
             $table->time('shiftStart')->nullable();

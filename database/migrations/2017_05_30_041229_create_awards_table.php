@@ -15,7 +15,8 @@ class CreateAwardsTable extends Migration
     {
         Schema::create('awards', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->string('awardName')->nullable();
             $table->string('giftItem')->nullable();
             $table->string('cashPrice')->nullable();
