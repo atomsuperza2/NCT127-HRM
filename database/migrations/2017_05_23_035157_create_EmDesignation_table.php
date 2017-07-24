@@ -33,6 +33,6 @@ class CreateEmDesignationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('EmDesignation');
+        Schema::dropIfExists('emdesignation');
     }
 }

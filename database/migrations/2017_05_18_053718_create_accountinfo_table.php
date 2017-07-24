@@ -47,6 +47,6 @@ class CreateAccountinfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AccountInfo');
+        Schema::dropIfExists('accountinfo');
     }
 }
