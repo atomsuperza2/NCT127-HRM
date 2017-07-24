@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
      */
     private function createUser($role)
     {
-        $user = factory(User::class)->create();
+        $user = Faker\Factory(User::class)->create();
 
         $user->assignRole($role->name);
         if( $role->name == 'Admin' ) {
@@ -86,8 +86,8 @@ class DatabaseSeeder extends Seeder
 
             $this->command->warn('Password is "secret"');
         }
-        $account = factory(AccountInfo::class)->create(['user_id' => $user->id]);
-        $account = factory(BankaccountModel::class)->create(['user_id' => $user->id]);
+        $account = Faker\Factory(AccountInfo::class)->create(['user_id' => $user->id]);
+        $account = Faker\Factory(BankaccountModel::class)->create(['user_id' => $user->id]);
     }
 
 }
