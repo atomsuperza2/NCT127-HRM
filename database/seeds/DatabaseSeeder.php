@@ -6,7 +6,7 @@ use App\Permission;
 use App\AccountInfo;
 use App\BankaccountModel;
 use Illuminate\Database\Seeder;
-use Factory;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -66,28 +66,28 @@ class DatabaseSeeder extends Seeder
 
         $this->call('StatusTableSeeder');
         $this->call('SalarytypeTableSeeder');
-        $this->call('UsersTableSeeder');
-        $this->call('AccountTableSeeder');
-        $this->call('BankAccountTableSeeder');
+        // $this->call('UsersTableSeeder');
+        // $this->call('AccountTableSeeder');
+        // $this->call('BankAccountTableSeeder');
     }
-    // /**
-    //  * Create a user with given role
-    //  *
-    //  * @param $role
-    //  */
-    // private function createUser($role)
-    // {
-    //     $user = factory(User::class)->create();
-    //
-    //     $user->assignRole($role->name);
-    //     if( $role->name == 'Admin' ) {
-    //         $this->command->info('Here is your admin details to login:');
-    //         $this->command->warn($user->email);
-    //
-    //         $this->command->warn('Password is "secret"');
-    //     }
-    //     $account = factory(AccountInfo::class)->create(['user_id' => $user->id]);
-    //     $account = factory(BankaccountModel::class)->create(['user_id' => $user->id]);
-    // }
+    /**
+     * Create a user with given role
+     *
+     * @param $role
+     */
+    private function createUser($role)
+    {
+        $user = factory(User::class)->create();
+
+        $user->assignRole($role->name);
+        if( $role->name == 'Admin' ) {
+            $this->command->info('Here is your admin details to login:');
+            $this->command->warn($user->email);
+
+            $this->command->warn('Password is "secret"');
+        }
+        $account = factory(AccountInfo::class)->create(['user_id' => $user->id]);
+        $account = factory(BankaccountModel::class)->create(['user_id' => $user->id]);
+    }
 
 }
