@@ -66,9 +66,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('StatusTableSeeder');
         $this->call('SalarytypeTableSeeder');
-        // $this->call('UsersTableSeeder');
-        // $this->call('AccountTableSeeder');
-        // $this->call('BankAccountTableSeeder');
+      
     }
     /**
      * Create a user with given role
