@@ -6,7 +6,7 @@ use App\Permission;
 use App\AccountInfo;
 use App\BankaccountModel;
 use Illuminate\Database\Seeder;
-use Faker\Factory;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('StatusTableSeeder');
         $this->call('SalarytypeTableSeeder');
-      
+
     }
     /**
      * Create a user with given role
