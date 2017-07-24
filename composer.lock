@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7390812d126415853b91cfbc4f1e448f",
+    "content-hash": "680b08a4f39c44fe7c1509bec3cc0ff1",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -2945,7 +2945,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pádraic Brady",
+                    "name": "Padraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
