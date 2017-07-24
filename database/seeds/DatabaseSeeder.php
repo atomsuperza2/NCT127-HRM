@@ -6,7 +6,7 @@ use App\Permission;
 use App\AccountInfo;
 use App\BankaccountModel;
 use Illuminate\Database\Seeder;
-use Faker\Factory;
+use Factory;
 
 class DatabaseSeeder extends Seeder
 {
