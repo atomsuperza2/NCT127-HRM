@@ -14,7 +14,7 @@
                 <div class="heading">Add Pay</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('pay.storepay', $accounts->id)}}">
+                  <form name = "content" action = "{{route('pay.storepay', $accounts->id)}}" method = "get">
 
                   <div class="form-group">
                   	<input class="form-control" name="name" type="text" value= "{{$accounts->name}}" disabled>
@@ -22,24 +22,29 @@
                   </div>
 
                   <div class="form-group">
-                    <select class="form-control" name="cutoff_id">
-                      @foreach ($cutoff as $cutoffs)
-                        <option value="{{$cutoffs->id}}"> {{$cutoffs->dateStart}} - {{$cutoffs->dateEnd}}</option>
-                      @endforeach
-                    </select>
+                  <input class="form-control" name="cutoffname" type="text" value= "ตังแต่วันที่ {{$cutoff->dateStart}}  ถึง  {{$cutoff->dateEnd}} " >
+                  <input class="form-control" name="cutoff_id" type="hidden" value= "{{$cutoff->id}}" >
+
                   </div>
 
-                  <input type= "text" class = "form-control" name="hourswork" placeholder="ชั่วโมงงานทั้งหมด"><br>
+                  <?php
+
+                  $payment = $accounts->getPayment($cutoff->id);
+
+                  ?>
+
+                  <input type= "text" class = "form-control" name="hourswork"  value="{{$payment->hourswork}}" placeholder="ชั่วโมงงานทั้งหมด"><br>
                   <!-- <input type= "text" class = "form-control" name="hwpay" placeholder="เงินทั้งหมด"><br> -->
-                  <input type= "text" class = "form-control" name="latetime" placeholder="เข้างานสาย"><br>
-                  <input type= "text" class = "form-control" name="ltpay" placeholder="ชั่วโมงที่สายรวมเป็นเงิน"><br>
-                  <input type= "text" class = "form-control" name="overtime" placeholder="OT(งานนอกเวลา)"><br>
-                  <input type= "text" class = "form-control" name="otpay" placeholder="ชั่วโมงOTรวมเป็นเงิน"><br>
-                  <input type= "text" class = "form-control" name="totalpay" placeholder="จำนวนเงินคงเหลือ"><br>
+                  <input type= "text" class = "form-control" name="latetime" value="{{$payment->latetime}}" placeholder="เข้างานสาย"><br>
+                  <input type= "text" class = "form-control" name="ltpay" value="{{$payment->ltpay}}" placeholder="ชั่วโมงที่สายรวมเป็นเงิน"><br>
+                  <input type= "text" class = "form-control" name="overtime" value="{{$payment->overtime}}" placeholder="OT(งานนอกเวลา)"><br>
+                  <input type= "text" class = "form-control" name="otpay" value="{{$payment->otpay}}" placeholder="ชั่วโมงOTรวมเป็นเงิน"><br>
+                  <input type= "text" class = "form-control" name="totalpay" value="{{$payment->totalpay}}" placeholder="จำนวนเงินคงเหลือ"><br>
+
+                  <input type= "text" class = "form-control" name="p_id" value="{{$payment->id}}"><br>
 
 
-
-
+                  <?=csrf_field(); ?>
                 <button type="submit" class="btn btn-primary">Add</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>

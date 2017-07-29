@@ -49,6 +49,7 @@ class PayController extends Controller
 
       $accounts = AccountInfo::find($id);
       $cutoff = CutoffModel::find($request->cutoff_id);
+
       $payforuser = PayModel::firstOrcreate(
       [ 'user_id' => $id,
         'cutoff_id' => $request->cutoff_id,
@@ -59,54 +60,21 @@ class PayController extends Controller
 
     public function storepay(Request $request, $id){
 
-      // $dStart = PayModel::join('cutoff', 'pay.cutoff_id', '=', 'cutoff.id')
-      //                     ->where('cutoff.id', '=', $request->cutoff_id)
-      //                     ->select('cutoff.dateStart')->get();
-      //                     dd($dStart);
-      // // $dEnd = PayModel::join('cutoff', 'pay.cutoff_id', '=', 'cutoff.id')
-      // //                   ->where('pay.cutoff_id','=','cutoff.id')
-      // //                   ->select('cutoff.dateEnd')->get();
-      // $th = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
-      //                 ->where('attendance.user_id', '=', $id)
-      //                 ->where('attendance.date', '=', $dStart)
-      //                 ->select('attendance.totalH')->get();
-      // $tl = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
-      //                 ->where('attendance.date', '=', $dStart)
-      //                 ->where('attendance.user_id', '=',$id)
-      //                 ->select('attendance.totalL')->get();
-      // $tot = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
-      //                 ->where('attendance.date', '=', $dStart)
-      //                 ->where('attendance.user_id', '=',$id)
-      //                 ->select('attendance.totalOT')->get();
-      // $tp = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
-      //                 ->where('attendance.date', '=', $dStart)
-      //                 ->where('attendance.user_id', '=',$id)
-      //                 ->select('attendance.totalP')->get();
-      //
-      // $request->hourswork = $th;
-      // $request->latetime = $tl;
-      // $request->overtime = $tot;
-      // $request->totalpay = $tp;
-
       $accounts = AccountInfo::find($id);
-      $pays = new PayModel();
-      $pays->user_id = $request->user_id;
-      $pays->cutoff_id = $request->cutoff_id;
-      $pays->hourswork = $request->hourswork;
-      $pays->hwpay = $request->hwpay;
-      $pays->latetime = $request->latetime;
-      $pays->ltpay = $request->ltpay;
-      $pays->overtime = $request->overtime;
-      $pays->otpay = $request->otpay;
-      $pays->totalpay = $request->totalpay;
 
-      $pays->save();
+      PayModel::find($request->p_id)->save([
+         'hourswork'=> $request->hourswork,
+         'hwpay' => $request->hwpay,
+         'latetime' => $request->latetime,
+         'ltpay' => $request->ltpay,
+         'overtime' => $request->overtime,
+         'otpay' => $request->otpay,
+         'totalpay' => $request->totalpay,
+      ]);
 
+      return redirect("/accounts/$id/profile");
+      }
 
-
-      return redirect("/pay/$id");
-
-    }
     /**
      * Display the specified resource.
      *

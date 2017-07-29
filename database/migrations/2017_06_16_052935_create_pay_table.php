@@ -23,7 +23,7 @@ class CreatePayTable extends Migration
             $table->double('latetime')->nullable();
             $table->double('ltpay')->nullable();
             $table->double('overtime')->nullable();
-            $table->double('otpay')->nallable();
+            $table->double('otpay')->nullable();
             $table->double('totalpay')->nullable();
             $table->timestamps();
         });

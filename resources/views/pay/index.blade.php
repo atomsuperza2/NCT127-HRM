@@ -18,7 +18,7 @@
 
 <th>ชื่อ</th>
 <th>ชั่วโมงงานทั้งหมด</th>
-<th>เงินทั้งหมด</th>
+
 <th>เข้างานสาย</th>
 <th>รวมเป็นเงิน</th>
 <th>OT(งานนอกเวลา)</th>
@@ -32,7 +32,7 @@
 
         <td>{{$pay->accountinfo->name}}</td>
         <td>{{$pay->hourswork}}</td>
-        <td>{{$pay->hwpay}}</td>
+    
         <td>{{$pay->latetime}}</td>
         <td>{{$pay->ltpay}}</td>
         <td>{{$pay->overtime}}</td>

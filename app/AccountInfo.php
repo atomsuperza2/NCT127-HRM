@@ -86,6 +86,11 @@ class AccountInfo extends Model
   	// }
   }
 
+  public function getPayment($cutoff_id){
+    $pay = $this->pay->where('cutoff_id','=',$cutoff_id)->first();
+    return $pay;
+  }
+
   public function scopeFilter($query, $keywords)
   {
   if ($keywords->name) {
