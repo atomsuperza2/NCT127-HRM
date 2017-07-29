@@ -34,10 +34,10 @@ class Permission extends \Spatie\Permission\Models\Permission
             'edit_pay',
             'delete_pay',
 
-            'view_awards',
-            'add_awards',
-            'edit_awards',
-            'delete_awards',
+            // 'view_awards',
+            // 'add_awards',
+            // 'edit_awards',
+            // 'delete_awards',
 
             'view_roles',
             'add_roles',
@@ -54,25 +54,25 @@ class Permission extends \Spatie\Permission\Models\Permission
             'edit_designation',
             'delete_designation',
 
-            'view_events',
-            'add_events',
-            'edit_events',
-            'delete_events',
+            // 'view_events',
+            // 'add_events',
+            // 'edit_events',
+            // 'delete_events',
+            //
+            // 'view_holidays',
+            // 'add_holidays',
+            // 'edit_holidays',
+            // 'delete_holidays',
 
-            'view_holidays',
-            'add_holidays',
-            'edit_holidays',
-            'delete_holidays',
-
-            'view_trainingprogram',
-            'add_trainingprogram',
-            'edit_trainingprogram',
-            'delete_trainingprogram',
-
-            'view_training',
-            'add_training',
-            'edit_training',
-            'delete_training',
+            // 'view_trainingprogram',
+            // 'add_trainingprogram',
+            // 'edit_trainingprogram',
+            // 'delete_trainingprogram',
+            //
+            // 'view_training',
+            // 'add_training',
+            // 'edit_training',
+            // 'delete_training',
 
             'view_leaves',
             'add_leaves',

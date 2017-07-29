@@ -37,17 +37,7 @@
                     </li>
                 @endcan
 
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Attendance <span class="caret"></span></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li class="dropdown-header">Dropdown heading</li>
-                        @can('view_attendance')
-                        <li class="{{ Request::is('attendance*') ? 'active' : '' }}">
-                            <a href="{{ route('attendance.index') }}">
-                                Attendance</span>
-                            </a>
-                        </li>
-                          @endcan
+
 
                           @can('view_cutoff')
                           <li class="{{ Request::is('cutoff*') ? 'active' : '' }}">
@@ -56,8 +46,7 @@
                               </a>
                           </li>
                           @endcan
-                      </ul>
-                  </li>
+
 
                 @can('view_absences')
                 <li class="{{ Request::is('absences*') ? 'active' : '' }}">
@@ -103,7 +92,7 @@
                         </ul>
                       </li>
 
-              @can('view_events')
+              <!-- @can('view_events')
               <li class="{{ Request::is('events*') ? 'active' : '' }}">
                   <a href="{{ route('events.index') }}">
                       Event
@@ -117,8 +106,8 @@
                       Holidays
                   </a>
               </li>
-              @endcan
-              <li class="dropdown">
+              @endcan -->
+              <!-- <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trainingprogram <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header">Dropdown heading</li>
@@ -138,15 +127,15 @@
                         </li>
                         @endcan
                       </ul>
-                    </li>
+                    </li> -->
 
-              @can('view_awards')
+              <!-- @can('view_awards')
               <li class="{{ Request::is('awards*') ? 'active' : '' }}">
                   <a href="{{ route('awards.index') }}">
                       Awards
                   </a>
               </li>
-              @endcan
+              @endcan -->
 
               <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Leave <span class="caret"></span></a>

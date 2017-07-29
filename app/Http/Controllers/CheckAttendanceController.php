@@ -43,11 +43,17 @@ class CheckAttendanceController extends Controller
     return view('checkAttendance.check', ['cutoff' => $cutoff, 'ranges' => $ranges], compact('accounts'));
   }
 
+
   public function submitAttendance(Request $request, $id){
 
     $account = AccountInfo::find($id);
     $accountST = $account->salary_type;
     $accountS = $account->salary;
+    ////calculate total hour swork.
+    $totoleHourwork = CheckAttendanceController::calHourWork($request->date, $request->timeIn, $request->timeOut);
+    $totalLateTime = CheckAttendanceController::calTotalLateTime($request->date, $request->shiftStart, $request->timeIn);
+    $rorleOverTime = CheckAttendanceController::calTotalOT($request->date, $request->shiftEnd, $request->timeOut);
+    $TotlalPrice = CheckAttendanceController::calTotalPrice($request->date, $account->salary_type, $account->salary, $request->timeIn, $request->timeOut);
 
     // dd($accountS);
     // dd($accountST);
@@ -55,11 +61,6 @@ class CheckAttendanceController extends Controller
     $TEnd = Carbon::parse($account->shiftEnd);
     $defaultTime = Carbon::parse('00:00');
 
-    // $de = $account->shiftStart;
-    // $des = '10.00';
-    // $hour = doubleval($de);
-    // $result = $des + $hour;
-    //   dd($result);
 
     for ($i=0; $i < count($request->date); $i++) {
       $TimeIn = Carbon::parse($request->timeIn[$i]);
@@ -94,9 +95,7 @@ class CheckAttendanceController extends Controller
       $request->price = '0.0';
     }
 
-
-
-          AttendanceModel::find($request->a_id[$i])->update([
+        AttendanceModel::find($request->a_id[$i])->update([
            'date'=> $request->date[$i],
            'timeIn'=> $request->timeIn[$i],
            'timeOut'=> $request->timeOut[$i],
@@ -104,9 +103,77 @@ class CheckAttendanceController extends Controller
            'tardiness' => $request->tardiness,
            'overtime' => $request->overtime,
            'price' => $request->price,
+           'totalH' => $totoleHourwork,
+           'totalL' => $totalLateTime,
+           'totalOT' => $rorleOverTime,
+           'totalP' => $TotlalPrice,
         ]);
     }
         return redirect("/accounts/$id/profile");
+      }
+
+      public function calHourWork($date, $in, $out){
+        $result = 0;
+        for ($i=0; $i < count($date); $i++) {
+          $TimeIn = Carbon::parse($in[$i]);
+          $TimeOut = Carbon::parse($out[$i]);
+          $hoursWorked = $TimeOut->diffInSeconds($TimeIn);
+          $Hresult = gmdate('H:i:s', $hoursWorked);
+          $hours = doubleval($Hresult);
+          $i+-1;
+          $result += $hours;
+        }
+        return $result;
+      }
+      public function calTotalLateTime($date, $start, $in){
+        $result = 0;
+        $TStart = Carbon::parse($start);
+        for ($i=0; $i < count($date); $i++) {
+          $TimeIn2 = Carbon::parse($in[$i]);
+          $tardiness = $TimeIn2->diffInSeconds($TStart);
+          $late = gmdate('H:i:s', $tardiness);
+          $hours = doubleval($late);
+          $i+-1;
+          $result += $hours;
+        }
+        return $result;
+      }
+      public function calTotalOT($date, $end, $out){
+        $result = 0;
+        $TEnd = Carbon::parse($end);
+        for ($i=0; $i < count($date); $i++) {
+          $TimeOut2 = Carbon::parse($out[$i]);
+          $overTime = $TimeOut2->diffInSeconds($TEnd);
+          $OT = gmdate('H:i:s', $overTime);
+          $hours = doubleval($OT);
+          $i+-1;
+          $result += $hours;
+
+        }
+        return $result;
+      }
+
+      public function calTotalPrice($date, $accountST, $accountS, $in, $out){
+        $result = 0;
+        for ($i=0; $i < count($date); $i++) {
+          $TimeIn = Carbon::parse($in[$i]);
+          $TimeOut = Carbon::parse($out[$i]);
+          $hoursWorked = $TimeOut->diffInSeconds($TimeIn);
+          $Hresult = gmdate('H:i:s', $hoursWorked);
+
+          if ($accountST==1) {
+            $hours = doubleval($Hresult);
+            $result += ($hours*$accountS);
+          }elseif (($accountST==2) && ($Hresult!=='00:00:00')) {
+            $result += $accountS;
+          }elseif (($accountST==2) && ($Hresult=='00:00:00')) {
+            $result += '0.0';
+          }
+          elseif ($accountST==3) {
+            $result = $accountS;
+          }
+        }
+        return $result;
       }
 
 

@@ -22,9 +22,23 @@
                   	<input class = "form-control" name="user_id" value= "{{$pays->user_id}}" type="hidden">
 
                   </div>
+                  <div class="form-group">
+                    <select class="form-control" name="cutoff_id">
+                        <option value="{{$pays->cutoff_id}}"> {{$pays->cutoff->dateStart}} - {{$pays->cutoff->dateEnd}}</option>
+                      @foreach ($cutoff as $cutoffs)
+                        <option value="{{$cutoffs->id}}"> {{$cutoffs->dateStart}} - {{$cutoffs->dateEnd}}</option>
+                      @endforeach
+                    </select>
+                  </div>
 
-                    <input type= "text" class = "form-control" name="title" value="{{$pays->title}}" placeholder="Titile"><br>
-                    <input type= "text" class = "form-control" name="amount" value="{{$pays->amount}}" placeholder="Amount"><br>
+                  <input type= "time" class = "form-control" name="hourswork" value="{{$pays->hourswork}}" placeholder="ชั่วโมงงานทั้งหมด"><br>
+                  <input type= "text" class = "form-control" name="hwpay" value="{{$pays->hwpay}}" placeholder="เงินทั้งหมด"><br>
+                  <input type= "time" class = "form-control" name="latetime" value="{{$pays->latetime}}" placeholder="เข้างานสาย"><br>
+                  <input type= "text" class = "form-control" name="ltpay" value="{{$pays->ltpay}}" placeholder="รวมเป็นเงิน"><br>
+                  <input type= "time" class = "form-control" name="overtime" value="{{$pays->overtime}}" placeholder="OT(งานนอกเวลา)"><br>
+                  <input type= "text" class = "form-control" name="otpay" value="{{$pays->otpay}}" placeholder="เงินนอกเวลา"><br>
+                  <input type= "text" class = "form-control" name="totalpay" value="{{$pays->totalpay}}" placeholder="จำนวนเงินคงเหลือ"><br>
+
 
                 <button type="submit" class="btn btn-primary">Edit</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">

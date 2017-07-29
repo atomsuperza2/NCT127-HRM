@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PayModel;
 use App\AccountInfo;
+use App\CutoffModel;
 
 class PayController extends Controller
 {
@@ -26,7 +27,8 @@ class PayController extends Controller
      */
     public function create()
     {
-        return view('pay.add');
+        $cutoff = CutoffModel::get();
+        return view('pay.add', ['cutoff' => $cutoff]);
     }
 
     /**
@@ -42,26 +44,67 @@ class PayController extends Controller
       return redirect()->route('pay.index')->with('alert-succress','Add new awards success.');
     }
 
-    public function usercreatepay($id)
+    public function usercreatepay(Request $request, $id)
     {
 
       $accounts = AccountInfo::find($id);
-      return view('pay.adduserpay', compact('accounts'));
+      $cutoff = CutoffModel::find($request->cutoff_id);
+      $payforuser = PayModel::firstOrcreate(
+      [ 'user_id' => $id,
+        'cutoff_id' => $request->cutoff_id,
+      ]);
+
+      return view('pay.adduserpay', ['cutoff' => $cutoff], compact('accounts'));
     }
 
     public function storepay(Request $request, $id){
-      $accounts = AccountInfo::find($id);
 
+      // $dStart = PayModel::join('cutoff', 'pay.cutoff_id', '=', 'cutoff.id')
+      //                     ->where('cutoff.id', '=', $request->cutoff_id)
+      //                     ->select('cutoff.dateStart')->get();
+      //                     dd($dStart);
+      // // $dEnd = PayModel::join('cutoff', 'pay.cutoff_id', '=', 'cutoff.id')
+      // //                   ->where('pay.cutoff_id','=','cutoff.id')
+      // //                   ->select('cutoff.dateEnd')->get();
+      // $th = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
+      //                 ->where('attendance.user_id', '=', $id)
+      //                 ->where('attendance.date', '=', $dStart)
+      //                 ->select('attendance.totalH')->get();
+      // $tl = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
+      //                 ->where('attendance.date', '=', $dStart)
+      //                 ->where('attendance.user_id', '=',$id)
+      //                 ->select('attendance.totalL')->get();
+      // $tot = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
+      //                 ->where('attendance.date', '=', $dStart)
+      //                 ->where('attendance.user_id', '=',$id)
+      //                 ->select('attendance.totalOT')->get();
+      // $tp = PayModel::join('attendance', 'pay.user_id', '=', 'attendance.user_id')
+      //                 ->where('attendance.date', '=', $dStart)
+      //                 ->where('attendance.user_id', '=',$id)
+      //                 ->select('attendance.totalP')->get();
+      //
+      // $request->hourswork = $th;
+      // $request->latetime = $tl;
+      // $request->overtime = $tot;
+      // $request->totalpay = $tp;
+
+      $accounts = AccountInfo::find($id);
       $pays = new PayModel();
       $pays->user_id = $request->user_id;
-      $pays->title = $request->title;
-      $pays->amount = $request->amount;
+      $pays->cutoff_id = $request->cutoff_id;
+      $pays->hourswork = $request->hourswork;
+      $pays->hwpay = $request->hwpay;
+      $pays->latetime = $request->latetime;
+      $pays->ltpay = $request->ltpay;
+      $pays->overtime = $request->overtime;
+      $pays->otpay = $request->otpay;
+      $pays->totalpay = $request->totalpay;
 
       $pays->save();
 
 
 
-      return redirect("/accounts/$id/profile");
+      return redirect("/pay/$id");
 
     }
     /**
@@ -83,8 +126,9 @@ class PayController extends Controller
      */
     public function edit($id)
     {
+      $cutoff = CutoffModel::get();
       $pays = PayModel::find($id);
-      return view('pay.edit', compact('pays'));
+      return view('pay.edit', ['cutoff' => $cutoff], compact('pays'));
     }
 
     /**
@@ -98,8 +142,14 @@ class PayController extends Controller
     {
       $pays = PayModel::find($id);
       $pays->user_id = $request->user_id;
-      $pays->title = $request->title;
-      $pays->amount = $request->amount;
+      $pays->cutoff_id = $request->cutoff_id;
+      $pays->hourswork = $request->hourswork;
+      $pays->hwpay = $request->hwpay;
+      $pays->latetime = $request->latetime;
+      $pays->ltpay = $request->ltpay;
+      $pays->overtime = $request->overtime;
+      $pays->otpay = $request->otpay;
+      $pays->totalpay = $request->totalpay;
       $pays->save();
       session()->flash('message','Updated Successfully');
       return redirect('/pay');
@@ -118,4 +168,6 @@ class PayController extends Controller
       session()->flash('message','Delete Successfully');
       return redirect('/pay');
     }
+
+
 }

@@ -13,4 +13,9 @@ class PayModel extends Model
   {
     return $this->belongsTo('App\AccountInfo', 'user_id');
   }
+
+  public function cutoff()
+  {
+    return $this->belongsTo('App\CutoffModel', 'cutoff_id');
+  }
 }

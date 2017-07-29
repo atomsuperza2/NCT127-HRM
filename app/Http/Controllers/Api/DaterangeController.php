@@ -11,12 +11,21 @@ class DaterangeController extends Controller
   {
     public function select ($id){
 
-      $accounts = AccountInfo::find($id);
+    $accounts = AccountInfo::find($id);
     $cutoff = CutoffModel::pluck('dateStart', 'id');
 
     // dd($cutoff);
 
     return view('accounts.selectCutoff', ['cutoff' => $cutoff], compact('accounts'));
+    }
+
+    public function selectC ($id){
+      
+      $accounts = AccountInfo::find($id);
+      $cutoff = CutoffModel::get();
+
+      return view('accounts.selectCutoffForpay', ['cutoff' => $cutoff], compact('accounts'));
+
     }
 
     public static function dateRange($start, $end, $step = '+1 day', $format = 'Y/m/d' )

@@ -21,9 +21,13 @@ class CreateAttendanceTable extends Migration
             $table->time('timeIn')->nullable();
             $table->time('timeOut')->nullable();
             $table->time('hoursWorked')->nullable();
+            $table->double('totalH')->nullable();
             $table->time('tardiness')->nullable();
+            $table->double('totalL')->nullable();
             $table->time('overtime')->nullable();
+            $table->double('totalOT')->nullable();
             $table->double('price')->nullable();
+            $table->double('totalP')->nullable();
             $table->timestamps();
         });
     }

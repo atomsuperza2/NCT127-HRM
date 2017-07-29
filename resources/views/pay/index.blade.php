@@ -16,21 +16,28 @@
 
   <tr>
 
-<th>Employee</th>
-<th>title</th>
-<th>Amount</th>
-
+<th>ชื่อ</th>
+<th>ชั่วโมงงานทั้งหมด</th>
+<th>เงินทั้งหมด</th>
+<th>เข้างานสาย</th>
+<th>รวมเป็นเงิน</th>
+<th>OT(งานนอกเวลา)</th>
+<th>เงินนอกเวลา</th>
+<th>จำนวนเงินคงเหลือ</th>
 <th>Action</th>
 </tr>
 <div class="container">
     @foreach ($pays as $pay)
     <tr>
-    
+
         <td>{{$pay->accountinfo->name}}</td>
-        <td>{{$pay->title}}</td>
-        <td>{{$pay->amount}}</td>
-
-
+        <td>{{$pay->hourswork}}</td>
+        <td>{{$pay->hwpay}}</td>
+        <td>{{$pay->latetime}}</td>
+        <td>{{$pay->ltpay}}</td>
+        <td>{{$pay->overtime}}</td>
+        <td>{{$pay->otpay}}</td>
+        <td>{{$pay->totalpay}}</td>
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['pay.destroy',$pay->id]]) !!}
 									<a class="btn btn-primary" href="{{ route('pay.edit', $pay->id) }}">Edit</a>

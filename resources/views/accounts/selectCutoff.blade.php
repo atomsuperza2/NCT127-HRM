@@ -4,7 +4,7 @@
       <div class="modal-header">
         <h3 class="modal-title">Select CUT-OFF </h3>
         <div class="model-body">
-            <form action="{{ route('checkAttendance.check', $accounts->id) }}" method="get">
+            <form action="{{ route('checkAttendance.check', $accounts->id) }}" method="get">          
               <div class="form-group">
                   {!! Form::select('id', $cutoff, null, ['name' => 'cutoffId','placeholder' => 'Select Cutoff', 'class'=>'form-control']) !!}
               </div>

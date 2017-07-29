@@ -33,6 +33,7 @@ Route::group( ['middleware' => ['auth']], function() {
   Route::get('/accounts/{accounts}',array('as' => 'accounts.update', 'uses' => 'AccountInfoController@update'));
   Route::delete('/accounts/{user}','AccountInfoController@destroy')->name('accounts.destroy');
   Route::get('/accounts/{accounts}/profile', 'AccountInfoController@show')->name('accounts.show');
+
   Route::get('/accounts/{accounts}/check', 'AccountInfoController@checkAttendance')->name('accounts.check');
   Route::post('/accounts/{accounts}/check', 'AccountInfoController@submitAttendance')->name('accounts.submitAttendance');
   Route::post('/profileAV/{accounts}', 'AccountInfoController@update_avatar')->name('accounts.update_avatar');
@@ -99,7 +100,7 @@ Route::group( ['middleware' => ['auth']], function() {
   Route::get('/pay/{awards}', array('as' => 'pay.update', 'uses' => 'PayController@update'));
   Route::delete('/pay/{award}', 'PayController@destroy')->name('pay.destroy');
   Route::get('/pay/{accounts}/usercreatepay', 'PayController@usercreatepay')->name('pay.usercreatepay');
-  Route::post('/pay/{accounts}', array('as' => 'pay.storepay', 'uses' => 'PayController@storepay'));
+  Route::get('/pay/{accounts}', array('as' => 'pay.storepay', 'uses' => 'PayController@storepay'));
 
   Route::get('/trainingprogram', 'TrainingprogramController@index')->name('trainingprogram.index');
   Route::get('/trainingprogram/add', array('as'=>'trainingprogram.create','uses'=>'TrainingprogramController@create'));
@@ -179,6 +180,7 @@ Route::group( ['middleware' => ['auth']], function() {
 
 Route::get('daterange', 'API\DaterangeController@dateRange');
 Route::get('select', 'API\DaterangeController@select');
+Route::get('selectC', 'API\DaterangeController@selectC');
 ////////////////////////////////////////////////////
 
 

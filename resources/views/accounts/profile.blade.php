@@ -1,5 +1,6 @@
 @extends('layouts.customlayouts')
 @include('accounts.selectCutoff')
+@include('accounts.selectCutoffForpay')
 @section('content')
 
   <div class="row">
@@ -27,10 +28,11 @@
                 <a class="btn btn-primary" id="selectCutoff">Attendance</a>
                 <a class="btn btn-primary" href="{{route('absences.usercreateabsences', $accounts->id) }}">Absences</a>
                 <a class="btn btn-primary" href="{{ route('leaves.userleave', $accounts->id)}}">Leave</a>
-                <a class="btn btn-primary" href="{{ route('pay.usercreatepay', $accounts->id)}}">Pay</a>
+                <a class="btn btn-primary" id="select">Pay</a>
+                <!-- <a class="btn btn-primary" href="{{ route('pay.usercreatepay', $accounts->id)}}">Pay</a> -->
                 <a class="btn btn-primary" href="{{ route('bankaccount.edit', $accounts->id) }}">Bank account</a>
-                <a class="btn btn-primary" href="{{ route('awards.usercreateaward', $accounts->id)}}">Awards</a>
-                <a class="btn btn-primary" href="{{ route('training.usertraining', $accounts->id)}}">Training</a>
+                <!-- <a class="btn btn-primary" href="{{ route('awards.usercreateaward', $accounts->id)}}">Awards</a> -->
+                <!-- <a class="btn btn-primary" href="{{ route('training.usertraining', $accounts->id)}}">Training</a> -->
 
               </div>
               <hr />
@@ -50,12 +52,12 @@
                 </div>
                 <div class=" col-md-4" >
                   <div class="panel panel-default">
-                    <h1><center>1</center></h1>
+                    <h1><center>//</center></h1>
                   </div>
                 </div>
                 <div class=" col-md-4">
                   <div class="panel panel-default">
-                    <h1><center>1</center></h1>
+                    <h1><center>//</center></h1>
                   </div>
                 </div>
               </div>
@@ -201,9 +203,18 @@
 </div>
 @endsection
 @section('script')
-<script type="text/javascript">
-$('#selectCutoff').on('click',function(){
-  $('#selectCut').modal('show')
-});
-</script>
+  <script type="text/javascript">
+
+    $('#selectCutoff').on('click',function(){
+      $('#selectCut').modal('show')
+    });
+
+    $('#select').on('click',function(){
+      $('#selectCutP').modal('show')
+    });
+
+  </script>
+
+
+
 @endsection

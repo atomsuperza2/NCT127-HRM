@@ -13,8 +13,8 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => 'heroku',
+    'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => 'heroku',
 
     /*
     |--------------------------------------------------------------------------
@@ -42,11 +42,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'us-cdbr-iron-east-03.cleardb.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'heroku_b3b22851d854367'),
+            'username' => env('DB_USERNAME', 'b371972e657cb7'),
+            'password' => env('DB_PASSWORD', '9960c524'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -68,16 +68,16 @@ return [
             'sslmode' => 'prefer',
         ],
 
-      'heroku' => [
-      'driver'   => 'pgsql',
-      'host'     => parse_url(getenv("DATABASE_URL"))["host"],
-      'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
-      'username' => parse_url(getenv("DATABASE_URL"))["user"],
-      'password' => parse_url(getenv("DATABASE_URL"))["pass"],
-      'charset'  => 'utf8',
-      'prefix'   => '',
-      'schema'   => 'public',
-      ],
+      // 'heroku' => [
+      // 'driver'   => 'pgsql',
+      // 'host'     => parse_url(getenv("DATABASE_URL"))["host"],
+      // 'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1),
+      // 'username' => parse_url(getenv("DATABASE_URL"))["user"],
+      // 'password' => parse_url(getenv("DATABASE_URL"))["pass"],
+      // 'charset'  => 'utf8',
+      // 'prefix'   => '',
+      // 'schema'   => 'public',
+      // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',

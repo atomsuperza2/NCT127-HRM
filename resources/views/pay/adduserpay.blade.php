@@ -17,16 +17,26 @@
                 <form class = "" method = "POST" action = "{{route('pay.storepay', $accounts->id)}}">
 
                   <div class="form-group">
-
-
                   	<input class="form-control" name="name" type="text" value= "{{$accounts->name}}" disabled>
                     <input name="user_id" type="hidden" value= "{{$accounts->id}}" >
-
                   </div>
 
+                  <div class="form-group">
+                    <select class="form-control" name="cutoff_id">
+                      @foreach ($cutoff as $cutoffs)
+                        <option value="{{$cutoffs->id}}"> {{$cutoffs->dateStart}} - {{$cutoffs->dateEnd}}</option>
+                      @endforeach
+                    </select>
+                  </div>
 
-                  <input type= "text" class = "form-control" name="title" placeholder="Titile"><br>
-                  <input type= "text" class = "form-control" name="amount" placeholder="Amount"><br>
+                  <input type= "text" class = "form-control" name="hourswork" placeholder="ชั่วโมงงานทั้งหมด"><br>
+                  <!-- <input type= "text" class = "form-control" name="hwpay" placeholder="เงินทั้งหมด"><br> -->
+                  <input type= "text" class = "form-control" name="latetime" placeholder="เข้างานสาย"><br>
+                  <input type= "text" class = "form-control" name="ltpay" placeholder="ชั่วโมงที่สายรวมเป็นเงิน"><br>
+                  <input type= "text" class = "form-control" name="overtime" placeholder="OT(งานนอกเวลา)"><br>
+                  <input type= "text" class = "form-control" name="otpay" placeholder="ชั่วโมงOTรวมเป็นเงิน"><br>
+                  <input type= "text" class = "form-control" name="totalpay" placeholder="จำนวนเงินคงเหลือ"><br>
+
 
 
 

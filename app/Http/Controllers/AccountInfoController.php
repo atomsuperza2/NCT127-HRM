@@ -139,6 +139,8 @@ class AccountInfoController extends Controller
       return view('accounts.profile', ['cutoff' => $cutoff], compact('accounts'));
     }
 
+
+
     public function checkAttendance(Request $request, $id)
     {
 
@@ -238,7 +240,7 @@ class AccountInfoController extends Controller
         $account->shiftEnd = $request -> shiftEnd;
         $account->salary = $request -> salary;
         $account->salary_type = $request -> salary_type;
-        
+
         $this->syncPermissions($request, $user);
         $account->save();
         $user->save();

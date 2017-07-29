@@ -62,8 +62,8 @@
                   ?>
                   <tr>
 
-                  <td><input class="form-control" name="daterange" value="{{$value}}" disabled/>
-                      <input class="form-control" name="date[]" value="{{$value}}" type="hidden"/></td>
+                          <td><input class="form-control" name="daterange" value="{{$value}}" disabled/>
+                            <input class="form-control" name="date[]" value="{{$value}}" type="hidden"/></td>
                           @if( $attend->timeIn == '00:00' || $attend->timeOut == '00:00')
                           <td><input class="form-control" name="timeIn[]" type="time" value="00:00"/></td>
                           <td><input class="form-control" name="timeOut[]" type="time" value="00:00"/></td>
@@ -82,6 +82,16 @@
 
                     </tr>
                     @endforeach
+
+                    <tr>
+                      <td><center><h4><b>Total</b></h4></center></td>
+                      <td> </td>
+                      <td> </td>
+                      <td><input class="form-control" name="totalHourWork" type="text" value="{{$attend->totalH}}"/></td>
+                      <td><input class="form-control" name="totalLate" type="text" value="{{$attend->totalL}}"/></td>
+                      <td><input class="form-control" name="totalOT" type="text" value="{{$attend->totalOT}}"/></td>
+                      <td><input class="form-control" name="totalPayment" type="text" value="{{$attend->totalP}}"/></td>
+                    </tr>
 
 
     </div>
