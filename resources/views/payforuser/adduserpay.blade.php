@@ -14,7 +14,7 @@
                 <div class="heading">Add Pay</div>
 
                 <div class = "panel-body">
-                  <form name = "content" action = "{{route('pay.storepay', $accounts->id)}}" method = "get">
+                  <form name = "content" action = "{{route('payforuser.userstorepay', $accounts->id)}}" method = "get">
 
                   <div class="form-group">
                   	<input class="form-control" name="name" type="text" value= "{{$accounts->name}}" disabled>

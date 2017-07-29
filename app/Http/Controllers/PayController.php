@@ -44,36 +44,36 @@ class PayController extends Controller
       return redirect()->route('pay.index')->with('alert-succress','Add new awards success.');
     }
 
-    public function usercreatepay(Request $request, $id)
-    {
-
-      $accounts = AccountInfo::find($id);
-      $cutoff = CutoffModel::find($request->cutoff_id);
-
-      $payforuser = PayModel::firstOrcreate([
-        'user_id' => $id,
-        'cutoff_id' => $request->cutoff_id,
-      ]);
-
-      return view('pay.adduserpay', ['cutoff' => $cutoff], compact('accounts'));
-    }
-
-    public function storepay(Request $request, $id){
-
-      $accounts = AccountInfo::find($id);
-
-      PayModel::find($request->p_id)->update([
-         'hourswork'=> $request->hourswork,
-         'hwpay' => $request->hwpay,
-         'latetime' => $request->latetime,
-         'ltpay' => $request->ltpay,
-         'overtime' => $request->overtime,
-         'otpay' => $request->otpay,
-         'totalpay' => $request->totalpay,
-      ]);
-
-      return redirect("/accounts/$id/profile");
-      }
+    // public function usercreatepay(Request $request, $id)
+    // {
+    //
+    //   $accounts = AccountInfo::find($id);
+    //   $cutoff = CutoffModel::find($request->cutoff_id);
+    //
+    //   $payforuser = PayModel::firstOrcreate([
+    //     'user_id' => $id,
+    //     'cutoff_id' => $request->cutoff_id,
+    //   ]);
+    //
+    //   return view('pay.adduserpay', ['cutoff' => $cutoff], compact('accounts'));
+    // }
+    //
+    // public function storepay(Request $request, $id){
+    //
+    //   $accounts = AccountInfo::find($id);
+    //
+    //   PayModel::find($request->p_id)->update([
+    //      'hourswork'=> $request->hourswork,
+    //      'hwpay' => $request->hwpay,
+    //      'latetime' => $request->latetime,
+    //      'ltpay' => $request->ltpay,
+    //      'overtime' => $request->overtime,
+    //      'otpay' => $request->otpay,
+    //      'totalpay' => $request->totalpay,
+    //   ]);
+    //
+    //   return redirect("/accounts/$id/profile");
+    //   }
 
     /**
      * Display the specified resource.

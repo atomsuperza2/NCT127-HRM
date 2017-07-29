@@ -4,7 +4,7 @@
       <div class="modal-header">
         <h3 class="modal-title">Select CUT-OFF </h3>
         <div class="model-body">
-            <form action="{{ route('pay.usercreatepay', $accounts->id) }}" method="get">
+            <form action="{{ route('payforuser.usercreatepay', $accounts->id) }}" method="get">
 
                 <div class="form-group">
                     {!! Form::select('id', $cutoff, null, ['name' => 'cutoff_id','placeholder' => 'Select Cutoff', 'class'=>'form-control']) !!}
