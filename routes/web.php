@@ -97,10 +97,10 @@ Route::group( ['middleware' => ['auth']], function() {
   Route::get('/pay/add', array('as'=>'pay.create','uses'=>'PayController@create'));
   Route::post('/pay/add', 'PayController@store')->name('pay.store');
   Route::get('/pay/{pay}/edit', 'PayController@edit')->name('pay.edit');
-  Route::get('/pay/{pays}', array('as' => 'pay.update', 'uses' => 'PayController@update'));
+  // Route::get('/pay/{pays}', array('as' => 'pay.update', 'uses' => 'PayController@update'));
   Route::delete('/pay/{pay}', 'PayController@destroy')->name('pay.destroy');
   Route::get('/pay/{accounts}/adduserpay', 'PayController@usercreatepay')->name('pay.usercreatepay');
-  Route::get('/pay/{accounts}', array('as' => 'pay.storepay', 'uses' => 'PayController@storepay'));
+  Route::get('/pay/{accounts}', 'PayController@storepay')->name('pay.storepay');
 
   Route::get('/trainingprogram', 'TrainingprogramController@index')->name('trainingprogram.index');
   Route::get('/trainingprogram/add', array('as'=>'trainingprogram.create','uses'=>'TrainingprogramController@create'));

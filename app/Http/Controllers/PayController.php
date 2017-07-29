@@ -50,8 +50,8 @@ class PayController extends Controller
       $accounts = AccountInfo::find($id);
       $cutoff = CutoffModel::find($request->cutoff_id);
 
-      $payforuser = PayModel::firstOrcreate(
-      [ 'user_id' => $id,
+      $payforuser = PayModel::firstOrcreate([
+        'user_id' => $id,
         'cutoff_id' => $request->cutoff_id,
       ]);
 
@@ -62,7 +62,7 @@ class PayController extends Controller
 
       $accounts = AccountInfo::find($id);
 
-      PayModel::find($request->p_id)->save([
+      PayModel::find($request->p_id)->update([
          'hourswork'=> $request->hourswork,
          'hwpay' => $request->hwpay,
          'latetime' => $request->latetime,

@@ -41,7 +41,7 @@
                   <input type= "text" class = "form-control" name="otpay" value="{{$payment->otpay}}" placeholder="ชั่วโมงOTรวมเป็นเงิน"><br>
                   <input type= "text" class = "form-control" name="totalpay" value="{{$payment->totalpay}}" placeholder="จำนวนเงินคงเหลือ"><br>
 
-                  <input type= "text" class = "form-control" name="p_id" value="{{$payment->id}}"><br>
+                  <input type= "hidden" class = "form-control" name="p_id" value="{{$payment->id}}"><br>
 
 
                   <?=csrf_field(); ?>
