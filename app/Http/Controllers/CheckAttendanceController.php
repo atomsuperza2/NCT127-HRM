@@ -94,6 +94,10 @@ class CheckAttendanceController extends Controller
       $request->price = $accountS;
     }elseif (($accountST==2) && ($Hresult=='00:00:00')) {
       $request->price = '0.0';
+    }elseif (($accountST==3) && ($Hresult!=='00:00:00')) {
+      $request->price = $accountS;
+    }elseif (($accountST==3) && ($Hresult=='00:00:00')) {
+      $request->price = '0.0';
     }
 
         AttendanceModel::find($request->a_id[$i])->update([

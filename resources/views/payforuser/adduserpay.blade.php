@@ -32,6 +32,7 @@
                   $payment = $accounts->getPayment($cutoff->id);
 
                   ?>
+                  
 
                   <input type= "text" class = "form-control" name="hourswork"  value="{{$payment->hourswork}}" placeholder="ชั่วโมงงานทั้งหมด"><br>
                   <!-- <input type= "text" class = "form-control" name="hwpay" placeholder="เงินทั้งหมด"><br> -->
