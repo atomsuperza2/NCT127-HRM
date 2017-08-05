@@ -41,7 +41,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-success">save</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>
             </div>

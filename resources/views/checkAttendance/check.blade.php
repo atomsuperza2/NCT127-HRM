@@ -7,6 +7,11 @@
 <div class="container form-container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+          <ol class="breadcrumb">
+            <li><a href="/accounts">Accounts</a></li>
+            <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
+            <li class="active">Check Attendance</li>
+          </ol>
             <div class="panel-regis">
                 <div class="heading">Check Attendance</div>
 
