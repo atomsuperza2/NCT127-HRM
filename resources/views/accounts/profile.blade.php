@@ -31,7 +31,7 @@
                 <a class="btn btn-primary" id="select">Pay</a>
 
                 <a class="btn btn-primary" href="{{ route('bankaccount.edit', $accounts->id) }}">Bank account</a>
-    
+
 
               </div>
               <hr />
@@ -87,19 +87,28 @@
                             <label for="Gender" class="col-md-4 control-label">Gender :</label>
                             <label for="Gender" class="col-md-8 control-label">{{$accounts->Gender}}</label>
 
+                            @if ($accounts->nationality_id == null)
+                            <label for="Nationality" class="col-md-4 control-label">Nationality :</label>
+                            <label for="Nationality" class="col-md-8 control-label"> a/n </label>
+                            @endif
+                            @if ($accounts->nationality_id != null)
+                            <label for="Nationality" class="col-md-4 control-label">Nationality :</label>
+                            <label for="Nationality" class="col-md-8 control-label">{{$accounts->nationality->nationality_name}}</label>
+                            @endif
+
                             <label for="email" class="col-md-4 control-label">E-Mail :</label>
                             <label for="email" class="col-md-8 control-label">{{$accounts->email}}</label>
                             @if ($accounts->phone == null)
-                            <label for="departmentName" class="col-md-5 control-label">Phone :</label>
-                            <label for="departmentName" class="col-md-7 control-label"> a/n </label>
+                            <label for="phone" class="col-md-4 control-label">Phone :</label>
+                            <label for="phone" class="col-md-8 control-label"> a/n </label>
                             @endif
                             @if ($accounts->phone != null)
                             <label for="phone" class="col-md-4 control-label">Phone :</label>
                             <label for="phone" class="col-md-8 control-label">{{$accounts->phone}}</label>
                             @endif
                             @if ($accounts->address == null)
-                            <label for="departmentName" class="col-md-5 control-label">Address :</label>
-                            <label for="departmentName" class="col-md-7 control-label"> a/n </label>
+                            <label for="address" class="col-md-4 control-label">Address :</label>
+                            <label for="address" class="col-md-8 control-label"> a/n </label>
                             @endif
                             @if ($accounts->address != null)
                             <label for="address" class="col-md-4 control-label">Address :</label>
