@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\PayModel;
 use App\AccountInfo;
 use App\CutoffModel;
-
+use Excel;
 class PayController extends Controller
 {
     /**
@@ -15,9 +15,9 @@ class PayController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { $cutoff = CutoffModel::get();
       $pays = PayModel::get();
-      return view('pay.index', ['pays' => $pays]);
+      return view('pay.index', ['pays' => $pays, 'cutoff' => $cutoff]);
     }
 
     /**
@@ -136,6 +136,33 @@ class PayController extends Controller
       session()->flash('message','Delete Successfully');
       return redirect('/pay');
     }
+
+
+
+    // public function selectExport()
+    // {
+    //     $cutoff = CutoffModel::get();
+    //     return view('pay.selectCutoff', ['cutoff' => $cutoff]);
+    // }
+    //
+    // public function exportExcel(Request $request, $id){
+    //   $cutoff = CutoffModel::find($id);
+    //   $export = PayModel::join('accountinfo', 'pay.user_id', '=', 'accountinfo.id')
+    //                       ->where('pay.cutoff_id', $request->cutoff_id)
+    //                       ->select('pay.user_id', 'accountinfo.name', 'pay.hourswork', 'pay.latetime', 'pay.ltpay', 'pay.overtime', 'pay.otpay', 'pay.totalpay')
+    //                       ->get();
+    //
+    //   //  dd($export);
+    //   Excel::create('export data', function($excel) use($export){
+    //     $excel->setTitle('รายงานการเข้างานของพนักงาน');
+    //     $excel->sheet('Sheet 1', function($sheet) use($export){
+    //       $sheet->fromArray($export);
+    //
+    //     });
+    //   })->export('xlsx');
+    //
+    //
+    // }
 
 
 }

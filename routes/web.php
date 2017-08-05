@@ -174,6 +174,10 @@ Route::group( ['middleware' => ['auth']], function() {
 
   Route::get('/export/{accounts}', 'CheckAttendanceController@exportExcel')->name('export');
 
+  // Route::get('/pay/selectCutoff', 'PayController@selectExport')->name('pay.selectExport');
+  // Route::get('/pay/selectCutoff', 'PayController@exportExcel')->name('pay.exportPM');
+  Route::get('/exportPM/selectCutoff', array('as'=>'pay.selectExport','uses'=>'ExportPMController@selectExport'));
+  Route::get('/exportPM/selectCutoff', 'ExportPMController@exportExcel')->name('pay.exportPM');
 });
 
   // Route::get('/leaves/{leaves}/show', function($id){

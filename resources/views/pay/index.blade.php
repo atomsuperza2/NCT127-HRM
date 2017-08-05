@@ -1,5 +1,5 @@
 @extends('layouts.customlayouts')
-
+@include('exportPM.selectCutoff')
 @section('content')
 
 @if(session()->has('message'))
@@ -10,7 +10,10 @@
 
 <div class="col-md-12">
     <div class="panel-regis">
-    <div class="heading">Pay For employee <a href="/pay/add" class="btn btn-primary "style="float:right;">New Pay</a></div>
+    <div class="heading">Pay For employee
+       <a href="/pay/add" class="btn btn-primary "style="float:right;">New Pay</a>
+       <a class="btn btn-info" id="export">export</a>
+    </div>
     <div class="panel-body">
 <table class="table table-striped">
 
@@ -55,4 +58,17 @@
 </div>
 </div>
 </div>
+@endsection
+@section('script')
+  <script type="text/javascript">
+
+    $('#export').on('click',function(){
+      $('#selectCutE').modal('show')
+    });
+
+
+  </script>
+
+
+
 @endsection

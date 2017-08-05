@@ -10,7 +10,7 @@
                     {!! Form::select('id', $cutoff, null, ['name' => 'cutoff_id','placeholder' => 'Select Cutoff', 'class'=>'form-control']) !!}
                 </div>
 
-              <button type='submit' class="btn btn-primary" href="">Select</button>
+              <button type='submit' class="btn btn-success" href="">Select</button>
             </form>
           </div>
         </div>
