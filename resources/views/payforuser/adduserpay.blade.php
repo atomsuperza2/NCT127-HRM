@@ -32,7 +32,7 @@
                   $payment = $accounts->getPayment($cutoff->id);
 
                   ?>
-                  
+
 
                   <input type= "text" class = "form-control" name="hourswork"  value="{{$payment->hourswork}}" placeholder="ชั่วโมงงานทั้งหมด"><br>
                   <!-- <input type= "text" class = "form-control" name="hwpay" placeholder="เงินทั้งหมด"><br> -->
@@ -46,7 +46,12 @@
 
 
                   <?=csrf_field(); ?>
-                <button type="submit" class="btn btn-primary">Add</button>
+                  <div class="form-group">
+                      <div class="col-md-6 col-md-offset-4">
+                        <button onclick="goBack()" class="btn btn-success">Nothing change</button>
+                        <button type="submit" class="btn btn-warning">Save change</button>  
+                      </div>
+                  </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>
             </div>
@@ -55,4 +60,16 @@
 </div>
 </div>
 
+@endsection
+@section('script')
+
+
+
+<script type="text/javascript">
+
+  function goBack() {
+    window.history.back();
+}
+
+   </script>
 @endsection

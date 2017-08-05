@@ -40,7 +40,7 @@
                   <input type= "text" class = "form-control" name="totalpay" value="{{$pays->totalpay}}" placeholder="จำนวนเงินคงเหลือ"><br>
 
 
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" class="btn btn-success">Save</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>
             </div>

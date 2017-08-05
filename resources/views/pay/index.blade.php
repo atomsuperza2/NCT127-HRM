@@ -32,7 +32,7 @@
 
         <td>{{$pay->accountinfo->name}}</td>
         <td>{{$pay->hourswork}}</td>
-    
+
         <td>{{$pay->latetime}}</td>
         <td>{{$pay->ltpay}}</td>
         <td>{{$pay->overtime}}</td>
@@ -40,7 +40,7 @@
         <td>{{$pay->totalpay}}</td>
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['pay.destroy',$pay->id]]) !!}
-									<a class="btn btn-primary" href="{{ route('pay.edit', $pay->id) }}">Edit</a>
+									<a class="btn btn-warning" href="{{ route('pay.edit', $pay->id) }}">Edit</a>
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 									{!! Form::close() !!}
 
