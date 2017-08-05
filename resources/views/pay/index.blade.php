@@ -34,13 +34,13 @@
     <tr>
 
         <td>{{$pay->accountinfo->name}}</td>
-        <td>{{$pay->hourswork}}</td>
+        <td>{{$pay->hourswork}} ชม.</td>
 
-        <td>{{$pay->latetime}}</td>
-        <td>{{$pay->ltpay}}</td>
-        <td>{{$pay->overtime}}</td>
-        <td>{{$pay->otpay}}</td>
-        <td>{{$pay->totalpay}}</td>
+        <td>{{$pay->latetime}} ชม.</td>
+        <td>{{$pay->ltpay}} บาท</td>
+        <td>{{$pay->overtime}} ชม.</td>
+        <td>{{$pay->otpay}} บาท</td>
+        <td>{{$pay->totalpay}} บาท</td>
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['pay.destroy',$pay->id]]) !!}
 									<a class="btn btn-warning" href="{{ route('pay.edit', $pay->id) }}">Edit</a>
