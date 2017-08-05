@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\PayModel;
 use App\AccountInfo;
 use App\CutoffModel;
+use App\AttendanceModel;
 
 class PaymentToEmController extends Controller
 {
@@ -14,7 +15,8 @@ class PaymentToEmController extends Controller
 
     $accounts = AccountInfo::find($id);
     $cutoff = CutoffModel::find($request->cutoff_id);
-
+    $att = AttendanceModel::where('user_id', $id)->select('totalOT');
+    dd($att);
     $payforuser = PayModel::firstOrcreate([
       'user_id' => $id,
       'cutoff_id' => $request->cutoff_id,
@@ -26,6 +28,7 @@ class PaymentToEmController extends Controller
   public function userstorepay(Request $request, $id){
 
     $accounts = AccountInfo::find($id);
+
 
     PayModel::find($request->p_id)->update([
        'hourswork'=> $request->hourswork,

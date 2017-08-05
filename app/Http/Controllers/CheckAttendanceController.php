@@ -33,6 +33,7 @@ class CheckAttendanceController extends Controller
         $checkAttendance = AttendanceModel::firstOrcreate(
         ['user_id' => $id,
         'date' => $date,
+        'cutoff_id' => $request->cutoffId,
         'timeIn' => '00:00',
         'timeOut' => '00:00']
       );
