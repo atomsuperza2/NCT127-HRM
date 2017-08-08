@@ -102,7 +102,17 @@
     </div>
       <?=csrf_field(); ?>
   </table>
-  <button type="submit" class="btn btn-primary">save</button>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-6">
+        <button onclick="goBack()" class="btn btn-danger">Back</button>
+      </div>
+      <div class="col-md-6 ">
+        <button type="submit" class="btn btn-success">save</button>
+      </div>
+    </div>
+    </div>
+
   <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                   </form>
@@ -112,4 +122,16 @@
           </div>
         </div>
 
+@endsection
+@section('script')
+
+
+
+<script type="text/javascript">
+
+  function goBack() {
+    window.history.back();
+}
+
+   </script>
 @endsection
