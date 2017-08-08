@@ -18,14 +18,15 @@ class CreatePayTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('accountinfo')->onDelete('cascade');
             $table->integer('cutoff_id')->nullable();
-            $table->double('hourswork')->nullable();
+            $table->double('hourswork')->nullable(); // ชั่วโมงงานทั้งหมด
             $table->double('hwpay')->nullable();
-            $table->double('latetime')->nullable();
-            $table->double('ltpay')->nullable();
-            $table->double('overtime')->nullable();
-            $table->double('otpay')->nullable();
-            $table->double('totalpay')->nullable();
+            $table->double('latetime')->nullable(); // เข้างานสาย
+            $table->double('ltpay')->nullable(); // เข้าสายรวมเป็นเงิน
+            $table->double('overtime')->nullable(); //OT(งานนอกเวลา)
+            $table->double('otpay')->nullable(); //เงินนอกเวลา
+            $table->double('totalpay')->nullable(); //จำนวนเงินคงเหลือ
             $table->timestamps();
+
         });
     }
 

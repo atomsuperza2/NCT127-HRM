@@ -18,7 +18,7 @@
                 <div class = "panel-body">
                   <form name = "content" action="{{ route('checkAttendance.submitAttendance', $accounts->id) }}" method="get">
 
-                      <a id = "buttonEx" class="btn btn-primary" href="{{route('export', $accounts->id) }}">Export</a>
+                      <!-- <a id = "buttonEx" class="btn btn-primary" href="{{route('export', $accounts->id) }}">Export</a> -->
 
                       <label for="Employee" class="col-md-4 control-label">Employee::</label>
                       <div class="col-md-6">

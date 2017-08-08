@@ -35,7 +35,6 @@
 
         <td>{{$pay->accountinfo->name}}</td>
         <td>{{$pay->hourswork}} ชม.</td>
-
         <td>{{$pay->latetime}} ชม.</td>
         <td>{{$pay->ltpay}} บาท</td>
         <td>{{$pay->overtime}} ชม.</td>
