@@ -45,7 +45,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('Gender') ? ' has-error' : '' }}">
+                        <!-- <div class="form-group{{ $errors->has('Gender') ? ' has-error' : '' }}">
                             <label for="Gender" class="col-md-4 control-label">Gender</label>
 
                             <div class="col-md-6">
@@ -62,18 +62,8 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> -->
 
-                        <!-- <div class="form-group{{ $errors->has('Gender') ? ' has-error' : '' }}">
-                            <label for="birthday" class="col-md-4 control-label">Gender</label>
-
-                          <div class="col-md-6">
-                        	<input checked="checked" name="gender" type="radio" value="M">
-                        	<label for="gender" class="margin">Male</label>
-                        	<input name="gender" type="radio" value="F" id="gender">
-                        	<label for="gender" class="margin">Female</label>
-                        </div>
-                      </div> -->
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>

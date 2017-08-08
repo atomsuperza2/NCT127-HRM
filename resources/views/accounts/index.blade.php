@@ -41,7 +41,11 @@
 <div class="container">
     @foreach ($accounts as $user)
     <tr>
+      @if( $user->user->roles->implode('name', ', ') === 'Admin')
+        <td>{{ $user->name}}</td>
+        @else
         <td><a href="{{route('accounts.show', $user->id)}}">{{ $user->name}}</a></td>
+      @endif
         <td>{{ $user->birthday}}</td>
         <td>{{ $user->Gender}}</td>
         <!-- <td>{{ $user->email}}</td> -->

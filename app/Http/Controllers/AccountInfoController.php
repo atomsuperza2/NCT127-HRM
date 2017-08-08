@@ -226,7 +226,7 @@ class AccountInfoController extends Controller
 
         $account->name = $request -> name;
         $account->birthday= $request -> birthday;
-        $account->Gender = $request -> Gender;
+        // $account->Gender = $request -> Gender;
         $account->email = $request -> email;
         $account->phone = $request -> phone;
         $account->address = $request -> address;
