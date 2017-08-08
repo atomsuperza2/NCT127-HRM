@@ -16,22 +16,29 @@ class PaymentToEmController extends Controller
     $accounts = AccountInfo::find($id);
     $cutoff = CutoffModel::find($request->cutoff_id);
     $att = AttendanceModel::where('user_id', $id)->where('cutoff_id', $request->cutoff_id)->get();
+    if (!empty($att[0])) {
+      $totalLateTimePrice = PaymentToEmController::calTotalLateTimePrice($accounts->id, $accounts->salary_type, $accounts->salary, $att[0]->totalL);
 
-    $totalLateTimePrice = PaymentToEmController::calTotalLateTimePrice($accounts->id, $accounts->salary_type, $accounts->salary, $att[0]->totalL);
-    $totalOTPrice = PaymentToEmController::calTotalOTPrice($accounts->id, $accounts->salary_type, $accounts->salary, $att[0]->totalOT);
-    
-    $payforuser = PayModel::firstOrcreate([
-      'user_id' => $id,
-      'cutoff_id' => $request->cutoff_id,
-      'hourswork' => $att[0]->totalH,
-      'latetime' => $att[0]->totalL,
-      'ltpay' => $totalLateTimePrice,
-      'overtime' => $att[0]->totalOT,
-      'otpay' => $totalOTPrice,
-      'totalpay' => $att[0]->totalP,
-    ]);
+      $totalOTPrice = PaymentToEmController::calTotalOTPrice($accounts->id, $accounts->salary_type, $accounts->salary, $att[0]->totalOT);
 
-    return view('payforuser.adduserpay', ['cutoff' => $cutoff, 'att' => $att], compact('accounts'));
+      $payforuser = PayModel::firstOrcreate([
+        'user_id' => $id,
+        'cutoff_id' => $request->cutoff_id,
+        'hourswork' => $att[0]->totalH,
+        'latetime' => $att[0]->totalL,
+        'ltpay' => $totalLateTimePrice,
+        'overtime' => $att[0]->totalOT,
+        'otpay' => $totalOTPrice,
+        'totalpay' => $att[0]->totalP,
+      ]);
+
+      return view('payforuser.adduserpay', ['cutoff' => $cutoff, 'att' => $att], compact('accounts'));
+
+
+    }else {
+      flash()->error( 'Please check attendance first.');
+      return redirect("/accounts/$id/profile");
+    }
   }
 
   public function userstorepay(Request $request, $id){
