@@ -8,7 +8,7 @@
             <div class="form-group">
               <select class="form-control" name="cutoff_id">
                 @foreach ($cutoff as $cutoffs)
-                  <option value="{{$cutoffs->id}}"> {{$cutoffs->dateStart}} - {{$cutoffs->dateEnd}}</option>
+                  <option value="{{$cutoffs->id}}"> {{$cutoffs->dateStart}} ถึง {{$cutoffs->dateEnd}}</option>
                 @endforeach
               </select>
             </div>
