@@ -268,7 +268,7 @@
 
                             <div class="col-md-6">
 
-                                {!! Form::select('roles[]', $roles, isset($user) ? $user->roles->pluck('id')->toArray() : null,  ['class' => 'form-control']) !!}
+                                {!! Form::select('roles[1]', $roles, isset($user) ? $user->roles->pluck('id')->toArray() : null,  ['class' => 'form-control']) !!}
 
                                 @if ($errors->has('roles'))
                                     <span class="help-block">
