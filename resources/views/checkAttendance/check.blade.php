@@ -108,7 +108,7 @@
         <button onclick="goBack()" class="btn btn-danger">Back</button>
       </div>
       <div class="col-md-6 ">
-        <button type="submit" class="btn btn-success">save</button>
+        <button type="submit" class="btn btn-success" style="float:right;">save</button>
       </div>
     </div>
     </div>
