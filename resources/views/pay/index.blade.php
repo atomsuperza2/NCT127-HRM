@@ -32,8 +32,8 @@
 <div class="container">
     @foreach ($pays as $pay)
     <tr>
-
-        <td>{{$pay->accountinfo->name}}</td>
+        <td><a href="{{route('accounts.show', $pay->user_id)}}">{{ $pay->accountinfo->name}}</a></td>
+        
         <td>{{$pay->hourswork}} ชม.</td>
         <td>{{$pay->latetime}} ชม.</td>
         <td>{{$pay->ltpay}} บาท</td>
