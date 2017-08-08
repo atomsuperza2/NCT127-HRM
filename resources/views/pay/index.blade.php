@@ -20,20 +20,20 @@
   <tr>
 
 <th>ชื่อ</th>
-<th>ชั่วโมงงานทั้งหมด</th>
-
-<th>เข้างานสาย</th>
+<th>วันที่</th>
+<th>ชั่วโมงงาน</th>
+<th>เข้าสาย</th>
 <th>รวมเป็นเงิน</th>
-<th>OT(งานนอกเวลา)</th>
-<th>เงินนอกเวลา</th>
-<th>จำนวนเงินคงเหลือ</th>
+<th>OT</th>
+<th>เงินOT</th>
+<th>เงินคงเหลือ</th>
 <th>Action</th>
 </tr>
 <div class="container">
     @foreach ($pays as $pay)
     <tr>
         <td><a href="{{route('accounts.show', $pay->user_id)}}">{{ $pay->accountinfo->name}}</a></td>
-        
+        <td >{{$pay->cutoff->dateStart}} ถึง {{$pay->cutoff->dateEnd}} </td>
         <td>{{$pay->hourswork}} ชม.</td>
         <td>{{$pay->latetime}} ชม.</td>
         <td>{{$pay->ltpay}} บาท</td>
