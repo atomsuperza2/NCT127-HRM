@@ -14,7 +14,7 @@
             </div>
 
 
-            {!! Form::submit('Select', ['class' => 'btn btn-scuuess']) !!}
+            {!! Form::submit('Select', ['class' => 'btn btn-success']) !!}
             {!! Form::close() !!}
 
           </div>
