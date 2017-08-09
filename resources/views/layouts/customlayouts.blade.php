@@ -141,13 +141,6 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Leave <span class="caret"></span></a>
                       <ul class="dropdown-menu" role="menu">
                         <li class="dropdown-header">Dropdown heading</li>
-                        @can('view_leavestype')
-                        <li class="{{ Request::is('leavestype*') ? 'active' : '' }}">
-                            <a href="{{ route('leavestype.index') }}">
-                                Leavestype
-                            </a>
-                        </li>
-                        @endcan
 
                         @can('view_leaves')
                         <li class="{{ Request::is('leaves*') ? 'active' : '' }}">
@@ -156,6 +149,15 @@
                             </a>
                         </li>
                         @endcan
+
+                        @can('view_leavestype')
+                        <li class="{{ Request::is('leavestype*') ? 'active' : '' }}">
+                            <a href="{{ route('leavestype.index') }}">
+                                Leavestype
+                            </a>
+                        </li>
+                        @endcan
+
                       </ul>
                     </li>
 
