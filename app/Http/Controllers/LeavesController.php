@@ -81,6 +81,38 @@ class LeavesController extends Controller
       return redirect("/accounts/$id/profile");
 
     }
+
+    public function userleaveA($id)
+    {
+      $leavestypes = LeavestypeModel::pluck('leavestype','id');
+      $accounts = AccountInfo::find($id);
+      return view('leaves.userleaveA', ['leavestypes' => $leavestypes], compact('accounts'));
+    }
+
+    public function storeleaveA(Request $request, $id)
+    {
+      $accounts = AccountInfo::find($id);
+      // $absences = AbsencesModel::create(['user_id' => $accounts->id, 'leavetype_id' => $request -> leavetype_id,
+      //                                             'reason' => $request -> reason, 'date' => $request -> date]);
+      $leaves = new LeavesModel();
+      $leaves->user_id = $request->user_id;
+      $leaves->leavetype_id = $request->leavetype_id;
+      $leaves->department = $request->department;
+      $leaves->designation = $request->designation;
+      $leaves->time = $request->time;
+      $leaves->writeAt = $request->writeAt;
+      $leaves->dear = $request->dear;
+      $leaves->phone = $request->phone;
+      $leaves->dateFrom = $request->dateFrom;
+      $leaves->dateTo = $request->dateTo;
+      $leaves->dateApplied = $request->dateApplied;
+      $leaves->reason = $request->reason;
+      $leaves->save();
+
+
+      return redirect("/home");
+
+    }
     /**
      * Display the specified resource.
      *

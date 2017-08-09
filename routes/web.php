@@ -142,6 +142,8 @@ Route::group( ['middleware' => ['auth']], function() {
   Route::get('/leaves/{accounts}/userleave', 'LeavesController@userleave')->name('leaves.userleave');
   Route::post('/leaves/{accounts}', array('as' => 'leaves.storeleave', 'uses' => 'LeavesController@storeleave'));
   Route::get('/leaves/{leaves}/show', 'LeavesController@show')->name('leaves.show');
+  Route::get('/leaves/{accounts}/userleave', 'LeavesController@userleaveA')->name('leaves.userleaveA');
+  Route::post('/leaves/{accounts}', array('as' => 'leaves.storeleaveA', 'uses' => 'LeavesController@storeleaveA'));
 
   Route::get('/cutoff', 'CutoffController@index')->name('cutoff.index');
   Route::get('/cutoff/add', 'CutoffController@create')->name('cutoff.create');
@@ -165,6 +167,8 @@ Route::group( ['middleware' => ['auth']], function() {
   Route::delete('/absences/{absences}', 'AbsencesController@destroy')->name('absences.destroy');
   Route::get('/absences/{accounts}/usercreateabsences', 'AbsencesController@usercreateabsences')->name('absences.usercreateabsences');
   Route::post('/absences/{accounts}', array('as' => 'absences.storeabsences', 'uses' => 'AbsencesController@storeabsences'));
+  Route::get('/absences/{accounts}/usercreateabsencesA', 'AbsencesController@usercreateabsencesA')->name('absences.usercreateabsencesA');
+  Route::post('/absences/{accounts}', array('as' => 'absences.storeabsencesA', 'uses' => 'AbsencesController@storeabsencesA'));
 
   Route::get('/checkAttendance/{accounts}/check', 'CheckAttendanceController@checkAttendance')->name('checkAttendance.check');
   Route::get('/checkAttendance/{accounts}', array('as' => 'checkAttendance.submitAttendance', 'uses' => 'CheckAttendanceController@submitAttendance'));

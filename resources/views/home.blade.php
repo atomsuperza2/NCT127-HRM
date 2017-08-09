@@ -12,17 +12,52 @@
 
 
 
-          <div class="col-md-12">
+          <!-- <div class="col-md-12">
           <div class="form-group">
               <div class="col-md-2 text-center">
                 <img src="/uploads/avatars/{{Auth::user()->account_info->avatar}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-{{Auth::user()->account_info->name}}
+                {{Auth::user()->account_info->name}}
 
 
 
               </div>
           </div>
 
+          </div> -->
+          <div class="col-md-4">
+              <img src="/uploads/avatars/{{Auth::user()->account_info->avatar}}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+              <br><br>
+              <label for="name">Employee :</label>
+              <label for="name">{{Auth::user()->account_info->name}}</label><br>
+              <label for="id">ID :</label>
+              <label for="id">{{Auth::user()->account_info->id}}</label>
+          </div>
+          <div class="col-md-8">
+            <div class="btn-group" role="group" aria-label="...">
+
+
+            <a class="btn btn-primary" href="{{route('absences.usercreateabsencesA', Auth::user()->account_info->id) }}">Absences</a>
+            <a class="btn btn-primary" href="{{ route('leaves.userleaveA', Auth::user()->account_info->id)}}">Leave</a>
+
+
+
+
+          </div>
+          <hr />
+
+          <div class="row">
+
+            <div class=" col-md-6" >
+              <div class="panel panel-default">
+                <h1><center>//</center></h1>
+              </div>
+            </div>
+            <div class=" col-md-6">
+              <div class="panel panel-default">
+                <h1><center>//</center></h1>
+              </div>
+            </div>
+          </div>
           </div>
           </div>
         </div>

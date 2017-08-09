@@ -28,7 +28,7 @@
 
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['absences.destroy',$absences->id]]) !!}
-									<a class="btn btn-primary" href="{{ route('absences.edit', $absences->id) }}">Edit</a>
+									<a class="btn btn-warning" href="{{ route('absences.edit', $absences->id) }}">Edit</a>
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 									{!! Form::close() !!}
 

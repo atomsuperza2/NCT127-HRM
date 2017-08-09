@@ -12,7 +12,7 @@
     <div class="panel-regis">
     <div class="heading">Pay For employee
        <a href="/pay/add" class="btn btn-primary "style="float:right;">New Pay</a>
-       <a class="btn btn-info" id="export">export</a>
+       <a class="btn btn-info" id="export">Export</a>
     </div>
     <div class="panel-body">
 <table class="table table-striped">

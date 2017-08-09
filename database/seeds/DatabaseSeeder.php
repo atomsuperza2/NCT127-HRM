@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call('StatusTableSeeder');
         $this->call('SalarytypeTableSeeder');
-
+        $this->call('LeavetypeTableSeeder');
     }
     /**
      * Create a user with given role

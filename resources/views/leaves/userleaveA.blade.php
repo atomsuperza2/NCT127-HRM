@@ -11,56 +11,59 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <ol class="breadcrumb">
-            <li><a href="/leaves">leaves</a></li>
-            <li class="active">Edit leave</li>
+            <li><a href="/accounts">Accounts</a></li>
+            <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
+            <li class="active">Create leave</li>
           </ol>
             <div class="panel-regis">
-                <div class="heading">Edit leave</div>
+                <div class="heading">Leave</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "GET" action = "{{route('leaves.update', $leaves->id)}}">
+                <form class = "" method = "POST" action = "{{route('leaves.storeleaveA', $accounts->id)}}">
+
+
 
                   <label for="dateEnd" class="col-md-4 control-label">เขียนที่</label>
                   <div class="col-md-6">
-                    <input type= "text" class = "form-control" name="writeAt" value="{{$leaves->writeAt}}"><br>
+                    <input type= "text" class = "form-control" name="writeAt" ><br>
                   </div>
 
                   <label for="dateEnd" class="col-md-4 control-label">เรื่อง</label>
                   <div class="col-md-6">
                   <div class="form-group">
 
-                    {!! Form::select('leavetype_id', $leavestypes, $leaves->leavetype_id, ['placeholder' => 'Select ', 'class'=>'form-control']) !!}
+                    {!! Form::select('leavetype_id', $leavestypes, null, ['placeholder' => 'Select ', 'class'=>'form-control']) !!}
                   </div>
                   </div>
 
                   <label for="dateEnd" class="col-md-4 control-label">เนื่องจาก</label>
                   <div class="col-md-6">
-                  <textarea name="reason" rows="5" cols="50" class = "form-control" >{{$leaves->writeAt}}</textarea><br>
+                  <textarea name="reason" rows="5" cols="50" class = "form-control"></textarea><br>
                 </div>
 
                 <label for="dateEnd" class="col-md-4 control-label">เรียน</label>
                 <div class="col-md-6">
-                  <input type= "text" class = "form-control" name="dear" value="{{$leaves->dear}}"><br>
+                  <input type= "text" class = "form-control" name="dear" ><br>
                 </div>
 
                   <label for="dateEnd" class="col-md-4 control-label">ข้าพเจ้า</label>
                   <div class="col-md-6">
-                  <div class="form-group">
+                    <div class="form-group">
 
-                    	<input class="form-control" name="name" type="text" value= "{{$leaves->accountinfo->name}}" disabled>
-                    	<input class = "form-control" name="user_id" value= "{{$leaves->user_id}}" type="hidden">
+                      <input class="form-control" name="name" type="text" value= "{{$accounts->name}}" disabled>
+                      <input name="user_id" type="hidden" value= "{{$accounts->id}}" >
 
+                    </div>
                   </div>
-                  </div>
 
-                  <label for="designation" class="col-md-4 control-label">ตำแหน่งงาน</label>
+                  <label for="dateEnd" class="col-md-4 control-label">ตำแหน่งงาน</label>
                   <div class="col-md-6">
                     <div class="form-group">
-                      @if($leaves->designation !== null)
-                      <input class="form-control" name="ndesignation" type="text" value= "{{$leaves->designation->designationName}}" disabled>
-                      <input name="designation" type="hidden" value= "{{$leaves->designation}}" >
+                      @if($accounts->designation_id !== null)
+                      <input class="form-control" name="ndesignation" type="text" value= "{{$accounts->designation->designationName}}" disabled>
+                      <input name="designation" type="hidden" value= "{{$accounts->designation_id}}" >
                       @endif
-                      @if($leaves->designation == null)
+                      @if($accounts->designation_id == null)
                       <input class="form-control" name="ndesignation" type="text" value= "" disabled>
                       <input class = "form-control" name="designation" value= "" type="hidden">
                       @endif
@@ -68,14 +71,14 @@
                     </div>
                   </div>
 
-                  <label for="department" class="col-md-4 control-label">สังกัดแผนก</label>
+                  <label for="dateEnd" class="col-md-4 control-label">สังกัดแผนก</label>
                   <div class="col-md-6">
                     <div class="form-group">
-                      @if($leaves->department !== null)
-                      <input class="form-control" name="ndepartment" type="text" value= "{{$leaves->department->departmentName}}" disabled>
-                      <input name="department" type="hidden" value= "{{$leaves->department}}" >
+                      @if($accounts->department_id !== null)
+                      <input class="form-control" name="ndepartment" type="text" value= "{{$accounts->department->departmentName}}" disabled>
+                      <input name="department" type="hidden" value= "{{$accounts->department_id}}" >
                       @endif
-                      @if($leaves->department == null)
+                      @if($accounts->department_id == null)
                       <input class="form-control" name="ndepartment" type="text" value= "" disabled>
                       <input class = "form-control" name="department" value= "" type="hidden">
                       @endif
@@ -94,27 +97,25 @@
 
                 <label for="dateEnd" class="col-md-4 control-label">ตั้งแต่วันที่</label>
                 <div class="col-md-6">
-                  <input type= "date" class = "form-control" name="dateFrom"  value="{{$leaves->dateFrom}}"><br>
+                  <input type= "date" class = "form-control" name="dateFrom" ><br>
                 </div>
 
                 <label for="dateEnd" class="col-md-4 control-label">ถึงวันที่</label>
                 <div class="col-md-6">
-                  <input type= "date" class = "form-control" name="dateTo" value="{{$leaves->dateTo}}" ><br>
+                  <input type= "date" class = "form-control" name="dateTo" ><br>
                 </div>
 
 
-                <label for="phone" class="col-md-4 control-label">โทร</label>
+                <label for="dateEnd" class="col-md-4 control-label">โทร</label>
                 <div class="col-md-6">
-                  <input type= "text" class = "form-control" name="phone" value="{{$leaves->phone}}" ><br>
-                </div>
-
-                <label for="status" class="col-md-4 control-label">เช็คการอนุมัติ</label>
-                <div class="col-md-6">
-                  <select class="form-control" name="status_id">
-                    <option value=" 1">Waiting</option>
-                    <option value=" 2">Approved</option>
-                    <option value=" 3">Disapproved</option>
-                  </select>  <br></br>
+                  @if($accounts->phone !== null)
+                    <input class="form-control" name="nphone" type="text" value= "{{$accounts->phone}}" disabled>
+                    <input name="phone" type="hidden" value= "{{$accounts->phone}}" >
+                    @endif
+                    @if($accounts->phone == null)
+                    <input class="form-control" name="nphone" type="text" value= "" disabled>
+                    <input class = "form-control" name="phone" value= "" type="hidden">
+                    @endif<br>
                 </div>
 
                 <label for="action" class="col-md-4 control-label"></label>
@@ -131,7 +132,6 @@
 </div>
 
 @endsection
-
 @section('script')
 
 <script type="text/javascript">

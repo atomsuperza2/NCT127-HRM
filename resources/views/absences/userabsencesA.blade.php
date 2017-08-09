@@ -14,17 +14,15 @@
                 <div class="heading">Absences</div>
 
                 <div class = "panel-body">
-                <form class = "" method = "POST" action = "{{route('absences.store')}}">
+                <form class = "" method = "POST" action = "{{route('absences.storeabsencesA', $accounts->id)}}">
 
                   <div class="form-group">
 
-                  	<input class="form-control" id="searchname" name="searchname" type="text" placeholder="Employee">
-                  	<input id="user_id" name="user_id" type="hidden">
+
+                  	<input class="form-control" name="name" type="text" value= "{{$accounts->name}}" disabled>
+                    <input name="user_id" type="hidden" value= "{{$accounts->id}}" >
 
                   </div>
-
-
-
 
                   <div class="form-group">
 
@@ -45,25 +43,4 @@
 </div>
 </div>
 
-@endsection
-
-@section('script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.js" charset="utf-8"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-
-
-<script type="text/javascript">
-  		$(function () {
-          $('#searchname').autocomplete({
-            source : '{!!URL::route('autocomplete')!!}',
-            minLength:1,
-
-            select:function(e,ui){
-              $('#user_id').val(ui.item.id);
-              $('#name').val(ui.item.value);
-            }
-          });
-  });
-
-   </script>
 @endsection

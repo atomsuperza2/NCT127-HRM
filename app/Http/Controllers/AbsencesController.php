@@ -69,6 +69,31 @@ class AbsencesController extends Controller
       return redirect("/accounts/$id/profile");
 
     }
+
+    public function usercreateabsencesA($id)
+    {
+      $leavestypes = LeavestypeModel::pluck('leavestype','id');
+      $accounts = AccountInfo::find($id);
+      return view('absences.userabsencesA', ['leavestypes' => $leavestypes], compact('accounts'));
+    }
+
+    public function storeabsencesA(Request $request, $id)
+    {
+      $accounts = AccountInfo::find($id);
+      // $absences = AbsencesModel::create(['user_id' => $accounts->id, 'leavetype_id' => $request -> leavetype_id,
+      //                                             'reason' => $request -> reason, 'date' => $request -> date]);
+      $absences = new AbsencesModel();
+      $absences->user_id = $request->user_id;
+      $absences->leavetype_id = $request->leavetype_id;
+      $absences->reason = $request->reason;
+      $absences->date = $request->date;
+      $absences->save();
+
+
+
+      return redirect("/home");
+
+    }
     /**
      * Display the specified resource.
      *
