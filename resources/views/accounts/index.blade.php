@@ -19,8 +19,8 @@
       @endcan
     </div>
     <div class="panel-body">
-<table class="table table-striped">
-
+<table id="myTable" class="table table-striped" >
+<thead>
   <tr>
 <th>Name</th>
 <th>Birthday</th>
@@ -38,7 +38,8 @@
 <th></th>
  @endcan
 </tr>
-<div class="container">
+</thead>
+<tbody>
     @foreach ($accounts as $user)
     <tr>
       @if( $user->user->roles->implode('name', ', ') === 'Admin')
@@ -75,11 +76,26 @@
            </tr>
     @endforeach
 
-</div>
+</tbody>
+
 </table>
+
 {!! $accounts->render() !!}
+
 </div>
 </div>
 </div>
 </div>
+
+@endsection
+@section('script')
+
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+
 @endsection

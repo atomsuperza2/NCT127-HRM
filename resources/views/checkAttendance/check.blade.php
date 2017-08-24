@@ -6,7 +6,7 @@
 
 <div class="container form-container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12 col-md-offset-0">
           <ol class="breadcrumb">
             <li><a href="/accounts">Accounts</a></li>
             <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
@@ -47,7 +47,7 @@
                       </div>
 
 
-              <table class="table table-striped">
+              <table  class="table table-striped">
 
                 <tr>
                   <th>Date</th>
@@ -126,7 +126,6 @@
 @section('script')
 
 
-
 <script type="text/javascript">
 
   function goBack() {
@@ -134,4 +133,6 @@
 }
 
    </script>
+
+
 @endsection

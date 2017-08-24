@@ -14,6 +14,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="https://use.fontawesome.com/bec5115d64.js"></script>
+ <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.css"> 
     @yield('style')
 </head>
 <body>
