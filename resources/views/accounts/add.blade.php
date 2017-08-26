@@ -241,10 +241,10 @@
                                 @endif
                             </div>
                             <select class="form-control" name="salary_type" style="width:110px;">
-                              <option value="null">select</option>
-                              <option value="1">Hour</option>
-                              <option value="2">Day</option>
-                              <option value="3">Month</option>
+                              <option value="null">เลือก</option>
+                              <option value="1">ชั่วโมง</option>
+                              <option value="2">วัน</option>
+                              <option value="3">เดือน</option>
                             </select>
                         </div>
 
