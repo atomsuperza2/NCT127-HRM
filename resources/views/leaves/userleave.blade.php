@@ -11,12 +11,12 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <ol class="breadcrumb">
-            <li><a href="/accounts">Accounts</a></li>
-            <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
-            <li class="active">Create leave</li>
+            <li><a href="/accounts">บัญชีผู้ใช้</a></li>
+            <li><a href="/accounts/{{$accounts->id}}/profile">การจัดการบัญชี</a></li>
+            <li class="active">สร้างใบลา</li>
           </ol>
             <div class="panel-regis">
-                <div class="heading">Leave</div>
+                <div class="heading">ลา</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "POST" action = "{{route('leaves.storeleave', $accounts->id)}}">
@@ -120,8 +120,8 @@
 
                 <label for="action" class="col-md-4 control-label"></label>
                 <div class="col-md-6">
-                <button type="submit" class="btn btn-success">Save</button>
-                <button onclick="goBack()" class="btn btn-danger">Canceled</button>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+                <button onclick="goBack()" class="btn btn-danger">ยกเลิก</button>
               </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>

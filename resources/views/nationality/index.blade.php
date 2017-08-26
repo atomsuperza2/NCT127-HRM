@@ -10,13 +10,13 @@
 
 <div class="col-md-12">
     <div class="panel-regis">
-    <div class="heading">Nationality<a href="/nationality/add" class="btn btn-primary "style="float:right;">New Nationality</a></div>
+    <div class="heading">สัญชาติ<a href="/nationality/add" class="btn btn-primary "style="float:right;">เพิ่มสัญชาติใหม่</a></div>
     <div class="panel-body">
 <table class="table table-striped">
 
   <tr>
     <th>ID</th>
-<th> Nationality</th>
+<th> สัญชาติ</th>
 
 <th>Action</th>
 </tr>
@@ -30,7 +30,7 @@
 
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['nationality.destroy',$nationalitys->id]]) !!}
-									<a class="btn btn-primary" href="{{ route('nationality.edit', $nationalitys->id) }}">Edit</a>
+									<a class="btn btn-primary" href="{{ route('nationality.edit', $nationalitys->id) }}">แก้ไข</a>
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 									{!! Form::close() !!}
 

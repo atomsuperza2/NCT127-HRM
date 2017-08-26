@@ -34,7 +34,7 @@
                             @can('view_accounts')
                                 <li class="{{ Request::is('accountinfo*') ? 'active' : '' }}">
                                     <a href="{{ route('accounts.index') }}">
-                                        <span class="text-info glyphicon glyphicon-user"></span> Account
+                                        <span class="text-info glyphicon glyphicon-user"></span> บัญชีผู้ใช้
                                     </a>
                                 </li>
                             @endcan
@@ -47,7 +47,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li class="nav-login"><a href="{{ route('login') }}">Login</a></li>
+                            <li class="nav-login"><a href="{{ route('login') }}">ลงชื่อเข้า</a></li>
                             <!-- <li class="nav-login"><a>|</a></li>
                             <li class="nav-login"><a href="{{ route('register') }}">Register</a></li> -->
                         @else
@@ -55,7 +55,7 @@
                         @can('view_roles')
                            <li class="{{ Request::is('roles*') ? 'active' : '' }}">
                                <a href="{{ route('roles.index') }}">
-                                   <span class="text-danger glyphicon glyphicon-lock"></span> Roles
+                                   <span class="text-danger glyphicon glyphicon-lock"></span> บทบาท
                                </a>
                            </li>
                            @endcan
@@ -71,7 +71,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            ลงชื่ออก
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

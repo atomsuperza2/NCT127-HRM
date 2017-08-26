@@ -12,11 +12,11 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 <ol class="breadcrumb">
-  <li><a href="/leaves">leaves</a></li>
-  <li class="active">New leave</li>
+  <li><a href="/leaves">ลางาน/ขาดงาน</a></li>
+  <li class="active">เพิ่มการลางาน</li>
 </ol>
             <div class="panel-regis">
-                <div class="heading">Leave</div>
+                <div class="heading">ลางาน</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "POST" action = "{{route('leaves.store')}}">
@@ -88,7 +88,7 @@
                   <input type= "date" class = "form-control" name="dateTo" ><br>
                 </div>
 
-                <label for="dateEnd" class="col-md-4 control-label">Date Applied</label>
+                <label for="dateEnd" class="col-md-4 control-label">วันที่ยืนยัน</label>
                 <div class="col-md-6">
                   <input type= "date" class = "form-control" name="dateApplied" ><br>
                 </div>
@@ -100,8 +100,8 @@
 
                 <label for="action" class="col-md-4 control-label"></label>
                 <div class="col-md-6">
-                <button type="submit" class="btn btn-success">Submit</button>
-                <button onclick="goBack()" class="btn btn-danger">Canceled</button>
+                <button type="submit" class="btn btn-success">ยืนยัน</button>
+                <button onclick="goBack()" class="btn btn-danger">ยกเลิก</button>
                 </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>

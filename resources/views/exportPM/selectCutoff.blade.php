@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title">Select CUT-OFF </h3>
+        <h3 class="modal-title">เลือกช่วงเวลาจ่ายยอด</h3>
         <div class="model-body">
           {!! Form::open(['method'=>'GET', 'route'=>['pay.exportPM']]) !!}
             <div class="form-group">

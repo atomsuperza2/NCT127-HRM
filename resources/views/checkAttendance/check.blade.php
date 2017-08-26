@@ -8,39 +8,39 @@
     <div class="row">
         <div class="col-md-12 col-md-offset-0">
           <ol class="breadcrumb">
-            <li><a href="/accounts">Accounts</a></li>
-            <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
-            <li class="active">Check Attendance</li>
+            <li><a href="/accounts">บัญขี</a></li>
+            <li><a href="/accounts/{{$accounts->id}}/profile">ตัวจัดการบัญชี</a></li>
+            <li class="active">ตรวจสอบการเข้างาน</li>
           </ol>
             <div class="panel-regis">
-                <div class="heading">Check Attendance</div>
+                <div class="heading">ตรวจสอบการเข้างาน</div>
 
                 <div class = "panel-body">
                   <form name = "content" action="{{ route('checkAttendance.submitAttendance', $accounts->id) }}" method="get">
 
                       <!-- <a id = "buttonEx" class="btn btn-primary" href="{{route('export', $accounts->id) }}">Export</a> -->
 
-                      <label for="Employee" class="col-md-4 control-label">Employee::</label>
+                      <label for="Employee" class="col-md-4 control-label">ลูกจ้าง::</label>
                       <div class="col-md-6">
                       <input class="form-control" name="name" type="text" value= "{{$accounts->name}}" disabled>
                       <input class = "form-control" name="user_id" value= "{{$accounts->id}}" type="hidden">
                       </div>
 
-                      <label for="dateStart" class="col-md-4 control-label">Date Start::</label>
+                      <label for="dateStart" class="col-md-4 control-label">วันเริ่มงาน::</label>
                       <div class="col-md-6">
                       <input class="form-control" name="daterangeStart" type="text" value= "{{$cutoff->dateStart}}" disabled>
                       </div>
 
-                      <label for="dateEnd" class="col-md-4 control-label">Date End::</label>
+                      <label for="dateEnd" class="col-md-4 control-label">วันสิ้นสุด::</label>
                       <div class="col-md-6">
                       <input class="form-control" name="daterangeEnd" type="text" value= "{{$cutoff->dateEnd}}" disabled>
                       </div>
-                      <label for="dateEnd" class="col-md-4 control-label">Shift Start::</label>
+                      <label for="dateEnd" class="col-md-4 control-label">เริ่มงาน::</label>
                       <div class="col-md-6">
                       <input class="form-control" name="shiftStart" type="hidden" value= "{{$accounts->shiftStart}}" >
                       <input class="form-control" name="Sstart" type="text" value= "{{$accounts->shiftStart}}" disabled>
                       </div>
-                      <label for="dateEnd" class="col-md-4 control-label">Shift End::</label>
+                      <label for="dateEnd" class="col-md-4 control-label">เลิกงาน::</label>
                       <div class="col-md-6">
                       <input class="form-control" name="shiftEnd" type="hidden" value= "{{$accounts->shiftEnd}}">
                       <input class="form-control" name="SEnd" type="text" value= "{{$accounts->shiftEnd}}" disabled>
@@ -50,13 +50,13 @@
               <table  class="table table-striped">
 
                 <tr>
-                  <th>Date</th>
-                  <th>TimeIn</th>
-                  <th>TimeOut</th>
-                  <th>HoursWorked</th>
-                  <th>Late</th>
-                  <th>Overtime</th>
-                  <th>Price</th>
+                  <th>วันที่</th>
+                  <th>เวลาเข้า</th>
+                  <th>เวลาออก</th>
+                  <th>ชั่วโมงที่ทำงาน</th>
+                  <th>เข้างานสาย</th>
+                  <th>โอที</th>
+                  <th>ค่าจ้าง</th>
                 </tr>
                 <div class="container">
                   @foreach ($ranges as $date => $value)
@@ -89,7 +89,7 @@
                     @endforeach
 
                     <tr>
-                      <td><center><h4><b>Total</b></h4></center></td>
+                      <td><center><h4><b>รวมทั้งหมด</b></h4></center></td>
                       <td> </td>
                       <td> </td>
                       <td><input class="form-control" name="totalHourWork" type="text" value="{{$attend->totalH}}"/></td>
@@ -105,10 +105,10 @@
   <div class="form-group">
     <div class="row">
       <div class="col-md-6">
-        <button onclick="goBack()" class="btn btn-danger">Back</button>
+        <button onclick="goBack()" class="btn btn-danger">กลับ</button>
       </div>
       <div class="col-md-6 ">
-        <button type="submit" class="btn btn-success" style="float:right;">save</button>
+        <button type="submit" class="btn btn-success" style="float:right;">บันทึก</button>
       </div>
     </div>
     </div>

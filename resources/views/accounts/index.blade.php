@@ -10,30 +10,30 @@
 
 <div class="col-md-12">
   <ol class="breadcrumb">
-    <li class="active">Accounts</li>
+    <li class="active">บัญชี</li>
   </ol>
     <div class="panel-regis">
-    <div class="heading">Accounts
+    <div class="heading">ลิสท์บัญชี
       @can('add_accounts')
-      <a href="{{ route('accounts.create') }}" class="btn btn-primary "style="float:right;">New accounts</a>
+      <a href="{{ route('accounts.create') }}" class="btn btn-primary "style="float:right;">เพิ่มใหม่</a>
       @endcan
     </div>
     <div class="panel-body">
 <table id="myTable" class="table table-striped" >
 <thead>
   <tr>
-<th>Name</th>
-<th>Birthday</th>
-<th>Gender</th>
+<th>ชื่อ</th>
+<th>วันเกิด</th>
+<th>เพศ</th>
 <!-- <th>Email</th> -->
-<th>Phone</th>
+<th>เบอร์โทรศัพท์</th>
 <!-- <th>Address</th> -->
 <!-- <th>EmployeeID</th> -->
 
-<th>HiredDate</th>
-<th>ExitDate</th>
-<th>Salary</th>
-<th>Role</th>
+<th>วันที่เริ่มจ้าง</th>
+<th>วันเลิกจ้าง</th>
+<th>ค่าจ้าง</th>
+<th>บทบาท</th>
 @can('edit_accounts', 'delete_accounts')
 <th></th>
  @endcan
@@ -62,11 +62,11 @@
         <td>
           @if( $user->user->roles->implode('name', ', ') === 'Admin')
 
-									<a class="btn btn-warning" href="#" disabled>Edit</a>
-                  <a class="btn btn-danger" href="#" disabled>Delete</a>
+									<a class="btn btn-warning" href="#" disabled>แก้ไข</a>
+                  <a class="btn btn-danger" href="#" disabled>ลบข้อมูล</a>
           @else
           {!! Form::open(['method'=>'DELETE', 'route'=>['accounts.destroy',$user->id]]) !!}
-									<a class="btn btn-warning" href="{{ route('accounts.edit', $user->id) }}">Edit</a>
+									<a class="btn btn-warning" href="{{ route('accounts.edit', $user->id) }}">แก้ไข</a>
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 
                   {!! Form::close() !!}

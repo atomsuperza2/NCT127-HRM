@@ -10,7 +10,7 @@
 
 <div class="col-md-12">
     <div class="panel-regis">
-    <div class="heading">Leave Type <a href="/leavestype/add" class="btn btn-primary "style="float:right;">New Leave type</a></div>
+    <div class="heading">ชนิดการลา <a href="/leavestype/add" class="btn btn-primary "style="float:right;">ชนิดการลาใหม่</a></div>
     <div class="panel-body">
 <table class="table table-striped">
 
@@ -30,7 +30,7 @@
 
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['leavestype.destroy',$leavestypes->id]]) !!}
-									<a class="btn btn-primary" href="{{ route('leavestype.edit', $leavestypes->id) }}">Edit</a>
+									<a class="btn btn-primary" href="{{ route('leavestype.edit', $leavestypes->id) }}">แก้ไข</a>
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 									{!! Form::close() !!}
 

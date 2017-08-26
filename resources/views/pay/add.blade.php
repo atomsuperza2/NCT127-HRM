@@ -11,14 +11,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel-regis">
-                <div class="heading">Add payment</div>
+                <div class="heading">เพิ่มการจ่ายค่าจ้าง</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "POST" action = "{{route('pay.store')}}">
 
                   <div class="form-group">
 
-                  	<input class="form-control" id="searchname" name="searchname" type="text" placeholder="Employee">
+                  	<input class="form-control" id="searchname" name="searchname" type="text" placeholder="ลูกจ้าง">
                   	<input id="user_id" name="user_id" type="hidden">
 
                   </div>
@@ -41,7 +41,7 @@
 
 
 
-                <button type="submit" class="btn btn-success">save</button>
+                <button type="submit" class="btn btn-success">บันทึก</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>
             </div>

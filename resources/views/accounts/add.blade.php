@@ -5,17 +5,17 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <ol class="breadcrumb">
-            <li><a href="/accounts">Accounts</a></li>
-            <li class="active">Add new account</li>
+            <li><a href="/accounts">บัญชีผู้ใช้</a></li>
+            <li class="active">เพิ่มบัญชีใหม่</li>
           </ol>
             <div class="panel-regis">
-                <div class="heading">Add new account</div>
+                <div class="heading">เพิ่มบัญชีใหม่</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('account.store') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <label for="name" class="col-md-4 control-label">ชื่อ</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -31,7 +31,7 @@
 
 
                         <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
-                            <label for="birthday" class="col-md-4 control-label">Birth day</label>
+                            <label for="birthday" class="col-md-4 control-label">วันเกิด</label>
 
                             <div class="col-md-6">
                                 <input id="birthday" type="date" class="form-control" name="birthday" value="{{ old('birthday') }}" required autofocus>
@@ -45,14 +45,14 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('Gender') ? ' has-error' : '' }}">
-                            <label for="Gender" class="col-md-4 control-label">Gender</label>
+                            <label for="Gender" class="col-md-4 control-label">เพศ</label>
 
                             <div class="col-md-6">
                               <div class="checkbox">
-                                <label><input type="checkbox" name="Gender" value="male">male</label>
+                                <label><input type="checkbox" name="Gender" value="male">ชาย</label>
                               </div>
                               <div class="checkbox">
-                                <label><input type="checkbox" name="Gender" value="female">female</label>
+                                <label><input type="checkbox" name="Gender" value="female">หญิง</label>
                               </div>
 
                                 @if ($errors->has('Gender'))
@@ -75,7 +75,7 @@
                       </div> -->
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">อีเมลล์</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
-                            <label for="phone" class="col-md-4 control-label">Phone</label>
+                            <label for="phone" class="col-md-4 control-label">โทรศัพท์</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
@@ -103,7 +103,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address" class="col-md-4 control-label">Address</label>
+                            <label for="address" class="col-md-4 control-label">ที่อยู่</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('nationality_id') ? ' has-error' : '' }}">
-                            <label for="nationality_id" class="col-md-4 control-label">Nationality</label>
+                            <label for="nationality_id" class="col-md-4 control-label">สัญชาติ</label>
 
                             <div class="col-md-6">
                                 {!! Form::select('nationality_id', $nationality, null, ['placeholder' => 'Select nationality', 'class'=>'form-control']) !!}
@@ -145,7 +145,7 @@
                         </div> -->
 
                         <div class="form-group{{ $errors->has('department_id') ? ' has-error' : '' }}">
-                            <label for="department_id" class="col-md-4 control-label">Department</label>
+                            <label for="department_id" class="col-md-4 control-label">แผนก</label>
 
                             <div class="col-md-6">
                                 {!! Form::select('department_id', $department, null, ['placeholder' => 'Select department', 'class'=>'form-control']) !!}
@@ -159,7 +159,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('designation_id') ? ' has-error' : '' }}">
-                            <label for="designation_id" class="col-md-4 control-label">Designation</label>
+                            <label for="designation_id" class="col-md-4 control-label">ตำแหน่ง</label>
 
                             <div class="col-md-6">
                                   {!! Form::select('designation_id', $designation, null, ['placeholder' => 'Select designation', 'class'=>'form-control']) !!}
@@ -173,7 +173,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('hiredDate') ? ' has-error' : '' }}">
-                            <label for="hiredDate" class="col-md-4 control-label">Hired Date</label>
+                            <label for="hiredDate" class="col-md-4 control-label">วันเริ่มจ้าง</label>
 
                             <div class="col-md-6">
                                 <input id="hiredDate" type="date" class="form-control" name="hiredDate" value="{{ old('hiredDate') }}" required>
@@ -187,7 +187,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('exitDate') ? ' has-error' : '' }}">
-                            <label for="exitDate" class="col-md-4 control-label">Exit Date</label>
+                            <label for="exitDate" class="col-md-4 control-label">วันสิ้นสัญญาจ้าง</label>
 
                             <div class="col-md-6">
                                 <input id="exitDate" type="date" class="form-control" name="exitDate" value="{{ old('exitDate') }}" required>
@@ -201,7 +201,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('shiftStart') ? ' has-error' : '' }}">
-                            <label for="shiftStart" class="col-md-4 control-label">Shift Start</label>
+                            <label for="shiftStart" class="col-md-4 control-label">เวลาเริ่มงาน</label>
 
                             <div class="col-md-6">
                                 <input id="shiftStart" type="time" class="form-control" name="shiftStart" value="{{ old('shiftStart') }}" required>
@@ -215,7 +215,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('shiftEnd') ? ' has-error' : '' }}">
-                            <label for="shiftEnd" class="col-md-4 control-label">Shift End</label>
+                            <label for="shiftEnd" class="col-md-4 control-label">เวลาเลิกงาน</label>
 
                             <div class="col-md-6">
                                 <input id="shiftEnd" type="time" class="form-control" name="shiftEnd" value="{{ old('shiftEnd') }}" required>
@@ -229,7 +229,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('salary') ? ' has-error' : '' }}">
-                            <label for="salary" class="col-md-4 control-label">Salary</label>
+                            <label for="salary" class="col-md-4 control-label">ค่าจ้าง</label>
 
                             <div class="col-md-4">
                                 <input id="salary" type="text" class="form-control" name="salary" value="{{ old('salary') }}" required>
@@ -250,7 +250,7 @@
 
 
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label">ID card</label>
+                            <label for="username" class="col-md-4 control-label">เลขบัตรประชาชน</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
@@ -264,7 +264,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">
-                            <label for="roles" class="col-md-4 control-label">Roles</label>
+                            <label for="roles" class="col-md-4 control-label">ตำแหน่ง</label>
 
                             <div class="col-md-6">
 
@@ -288,9 +288,9 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-success">
-                                    Save
+                                    บันทึก
                                 </button>
-                                  <button onclick="goBack()" class="btn btn-danger">Canceled</button>
+                                  <button onclick="goBack()" class="btn btn-danger">ยกเลิก</button>
                             </div>
                         </div>
                     </form>

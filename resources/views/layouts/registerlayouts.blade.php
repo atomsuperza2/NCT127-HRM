@@ -33,7 +33,7 @@
                             @can('view_accounts')
                                 <li class="{{ Request::is('accountinfo*') ? 'active' : '' }}">
                                     <a href="{{ route('accounts.index') }}">
-                                        <span class="text-info glyphicon glyphicon-user"></span> Account
+                                        <span class="text-info glyphicon glyphicon-user"></span> บัญชีผู้ใช้
                                     </a>
                                 </li>
                             @endcan
@@ -46,9 +46,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li class="nav-login"><a href="{{ route('login') }}">Login</a></li>
+                            <li class="nav-login"><a href="{{ route('login') }}">ลงชื่อเข้า</a></li>
                             <li class="nav-login"><a>|</a></li>
-                            <li class="nav-login"><a href="{{ route('register') }}">Register</a></li>
+                            <li class="nav-login"><a href="{{ route('register') }}">สมัคร</a></li>
                         @else
 
                         @can('view_roles')
@@ -70,7 +70,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            ลงชื่อออก
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

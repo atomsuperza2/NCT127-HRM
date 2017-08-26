@@ -11,25 +11,25 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel-regis">
-                <div class="heading">Bank Account</div>
+                <div class="heading">บัญชีธนาคาร</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "POST" action = "{{route('bankaccount.store')}}">
 
                   <div class="form-group">
 
-                  	<input class="form-control" id="searchname" name="searchname" type="text" placeholder="Employee">
+                  	<input class="form-control" id="searchname" name="searchname" type="text" placeholder="ลูกจ้าง">
                   	<input id="user_id" name="user_id" type="hidden">
 
                   </div>
 
 
-                  <input type= "text" class = "form-control" name="account_name" placeholder="Account name"><br>
-                  <input type= "text" class = "form-control" name="account_number" placeholder="Account number"><br>
-                  <input type= "text" class = "form-control" name="bank_name" placeholder="bank name"><br>
+                  <input type= "text" class = "form-control" name="account_name" placeholder="ชื่อบัญชี"><br>
+                  <input type= "text" class = "form-control" name="account_number" placeholder="เลขบัญชี"><br>
+                  <input type= "text" class = "form-control" name="bank_name" placeholder="ธนาคาร"><br>
 
 
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">เพิ่ม</button>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>
             </div>

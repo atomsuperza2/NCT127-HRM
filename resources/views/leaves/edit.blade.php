@@ -11,11 +11,11 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <ol class="breadcrumb">
-            <li><a href="/leaves">leaves</a></li>
-            <li class="active">Edit leave</li>
+            <li><a href="/leaves">ลางาน/ขาดงาน</a></li>
+            <li class="active">แก้ไข</li>
           </ol>
             <div class="panel-regis">
-                <div class="heading">Edit leave</div>
+                <div class="heading">แก้ไขการขาดงาน</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "GET" action = "{{route('leaves.update', $leaves->id)}}">
@@ -119,8 +119,8 @@
 
                 <label for="action" class="col-md-4 control-label"></label>
                 <div class="col-md-6">
-                <button type="submit" class="btn btn-success">Save</button>
-                <button onclick="goBack()" class="btn btn-danger">Canceled</button>
+                <button type="submit" class="btn btn-success">บันทึก</button>
+                <button onclick="goBack()" class="btn btn-danger">ยกเลิก</button>
               </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
               </form>

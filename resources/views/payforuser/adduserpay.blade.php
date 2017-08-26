@@ -11,9 +11,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <ol class="breadcrumb">
-            <li><a href="/accounts">Accounts</a></li>
-            <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
-            <li class="active">Payment</li>
+            <li><a href="/accounts">บัญชีผู้ใช้</a></li>
+            <li><a href="/accounts/{{$accounts->id}}/profile">การจัดการบัญชีผู้ใช้</a></li>
+            <li class="active">ระบบจ่ายเงิน</li>
           </ol>
             <div class="panel-regis">
                 <div class="heading">สรุปยอดชำระเงินพนักงาน</div>
@@ -60,8 +60,8 @@
                   <?=csrf_field(); ?>
                   <div class="form-group">
                       <div class="col-md-6 col-md-offset-4">
-                        <button onclick="goBack()" class="btn btn-success">Nothing change</button>
-                        <button type="submit" class="btn btn-warning">Save change</button>
+                        <button onclick="goBack()" class="btn btn-warning">ไม่มีการเปลี่ยนแปลงใดๆ</button>
+                        <button type="submit" class="btn btn-success">บันทึกการเปลี่ยนแปลง</button>
                       </div>
                   </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">

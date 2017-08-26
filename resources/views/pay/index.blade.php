@@ -10,13 +10,13 @@
 
 <div class="col-md-12">
     <div class="panel-regis">
-    <div class="heading">Pay For employee
-       <a href="/pay/add" class="btn btn-primary "style="float:right;">New Pay</a>
-       <a class="btn btn-info" id="export">Export</a>
+    <div class="heading">การจ่ายเงินให้ลูกจ้าง
+       <a href="/pay/add" class="btn btn-primary "style="float:right;">เพ่ิมการจ่าย</a>
+       <a class="btn btn-info" id="export">ปริ้นรายงาน</a>
     </div>
-    <div class="panel-body">
-<table class="table table-striped">
-
+    <div class="col-md-12">
+<table id="myTable" class="table table-striped">
+<thead>
   <tr>
 
 <th>ชื่อ</th>
@@ -29,7 +29,8 @@
 <th>เงินคงเหลือ</th>
 <th>Action</th>
 </tr>
-<div class="container">
+</thead>
+<tbody>
     @foreach ($pays as $pay)
     <tr>
         <td><a href="{{route('accounts.show', $pay->user_id)}}">{{ $pay->accountinfo->name}}</a></td>
@@ -42,7 +43,7 @@
         <td>{{$pay->totalpay}} บาท</td>
         <td>
           {!! Form::open(['method'=>'DELETE', 'route'=>['pay.destroy',$pay->id]]) !!}
-									<a class="btn btn-warning" href="{{ route('pay.edit', $pay->id) }}">Edit</a>
+									<a class="btn btn-warning" href="{{ route('pay.edit', $pay->id) }}">แก้ไข</a>
 									{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
 									{!! Form::close() !!}
 
@@ -51,7 +52,7 @@
     @endforeach
 
     </tr>
-</div>
+</tbody>
 </table>
 </div>
 </div>
@@ -64,10 +65,15 @@
     $('#export').on('click',function(){
       $('#selectCutE').modal('show')
     });
-
-
   </script>
 
+  <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
 
+  <script type="text/javascript">
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
 
 @endsection
+

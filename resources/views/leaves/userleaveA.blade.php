@@ -11,12 +11,12 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <ol class="breadcrumb">
-            <li><a href="/accounts">Accounts</a></li>
-            <li><a href="/accounts/{{$accounts->id}}/profile">Accounts management</a></li>
-            <li class="active">Create leave</li>
+            <li><a href="/accounts">บัญชี</a></li>
+            <li><a href="/accounts/{{$accounts->id}}/profile">การจัดการบัญชี</a></li>
+            <li class="active">สร้างการลา</li>
           </ol>
             <div class="panel-regis">
-                <div class="heading">Leave</div>
+                <div class="heading">ลา</div>
 
                 <div class = "panel-body">
                 <form class = "" method = "POST" action = "{{route('leaves.storeleaveA', $accounts->id)}}">
