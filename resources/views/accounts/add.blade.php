@@ -263,8 +263,13 @@
                             </div>
                         </div>
 
+
                         <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">
                             <label for="roles" class="col-md-4 control-label">ตำแหน่ง</label>
+
+                        <!-- <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">
+                            <label for="roles" class="col-md-4 control-label">Roles</label>
+
 
                             <div class="col-md-6">
 
@@ -282,7 +287,7 @@
 
                           @include('shared._permissions', ['closed' => 'true', 'model' => $user ])
 
-                        @endif
+                        @endif -->
 
 
                         <div class="form-group">
