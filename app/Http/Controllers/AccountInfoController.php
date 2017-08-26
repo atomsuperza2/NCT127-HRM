@@ -68,7 +68,7 @@ class AccountInfoController extends Controller
                                 // bcrypt($request -> birthday),
                                 'name'=> $request -> name,
                                 'email' => $request -> email,
-                                'roles' => $request -> roles,
+                                // 'roles' => $request -> roles,
                                 ]);
 
           $user->accountinfo = AccountInfo::create([
