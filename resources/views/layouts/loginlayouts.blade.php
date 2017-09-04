@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>HR</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -23,13 +23,13 @@
       <div class="container-fluid box">
 
                     <a class="header-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        HR
                     </a>
 
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
+                    <!-- <ul class="nav navbar-nav">
                       @if (Auth::check())
                             @can('view_accounts')
                                 <li class="{{ Request::is('accountinfo*') ? 'active' : '' }}">
@@ -41,24 +41,24 @@
 
 
                         @endif
-                    </ul>
+                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li class="nav-login"><a href="{{ route('login') }}">ลงชื่อเข้า</a></li>
+                            <!-- <li class="nav-login"><a href="{{ route('login') }}">ลงชื่อเข้า</a></li> -->
                             <!-- <li class="nav-login"><a>|</a></li>
                             <li class="nav-login"><a href="{{ route('register') }}">Register</a></li> -->
                         @else
 
-                        @can('view_roles')
+                        <!-- @can('view_roles')
                            <li class="{{ Request::is('roles*') ? 'active' : '' }}">
                                <a href="{{ route('roles.index') }}">
                                    <span class="text-danger glyphicon glyphicon-lock"></span> บทบาท
                                </a>
                            </li>
-                           @endcan
+                           @endcan -->
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">

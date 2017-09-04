@@ -111,7 +111,7 @@
                             <label for="nationality_id" class="col-md-4 control-label">Nationality</label>
 
                             <div class="col-md-6">
-                                {!! Form::select('nationality_id', $nationality,  $accounts->nationality_id, ['placeholder' => 'Select nationality_id', 'class'=>'form-control']) !!}
+                                {!! Form::select('nationality_id', $nationality,  $accounts->nationality_id, ['placeholder' => 'Select nationality', 'class'=>'form-control']) !!}
 
                                 @if ($errors->has('nationality_id'))
                                     <span class="help-block">
@@ -231,6 +231,7 @@
                                     </span>
                                 @endif
                             </div>
+
                             <select class="form-control" name="salary_type" style="width:110px;">
                               <option value="0">select</option>
                               <option value="1">Hour</option>
@@ -258,7 +259,7 @@
 
                             <div class="col-md-6">
 
-                                {!! Form::select('roles[]', $roles, isset($user) ? $user->roles->pluck('id')->toArray() : null,  ['class' => 'form-control']) !!}
+                                {!! Form::select('roles[]', $roles, isset($user) ? $user->roles->pluck('id')->toArray() : null,  ['placeholder' => ' ', 'class' => 'form-control']) !!}
 
                                 @if ($errors->has('roles'))
                                     <span class="help-block">
